@@ -1,0 +1,55 @@
+%!TeX spellcheck = sv_SE
+\documentclass[a4paper, parskip]{scrartcl}
+
+\input{preamble.tex}
+\input{commands.tex}
+
+\begin{document}
+
+\input{tex/title}
+\newpage
+
+% In the the end, the first page abstract and the start of your text should be separated by a blank page
+%\blankpage
+
+\input{tex/abstract.tex}
+
+\begingroup
+\hypersetup{hidelinks}
+\tableofcontents
+\endgroup
+\thispagestyle{empty}
+\newpage
+
+
+% Remove all sections to easier copy-paste the text
+% into a non-latex spell checker
+
+%\renewcommand{\section}[1]{}
+%\renewcommand{\subsection}[1]{}
+%\let\figure\comment
+%\let\endfigure\endcomment
+%\let\listing\comment
+%\let\endlisting\endcomment
+
+
+
+
+
+\hypersetup{hidelinks}
+\input{tex/introduction.tex}
+\input{tex/background.tex}
+\input{tex/analysis.tex}
+\input{tex/design.tex}
+\input{tex/result.tex}
+\input{tex/conclusion.tex}
+
+
+
+\clearpage
+\hypersetup{breaklinks=true}
+%\bibliographystyle{plainnat}
+\bibliographystyle{unsrt}
+\bibliography{bibliography/references.bib}
+
+\end{document}

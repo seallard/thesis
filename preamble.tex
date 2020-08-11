@@ -1,0 +1,120 @@
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%Supress warnings... :)
+\usepackage{silence}
+\WarningFilter{scrartcl}{Usage of package `fancyhdr'}
+\WarningFilter{scrartcl}{Usage of package `tocbibind'}
+
+% Fancy header/footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\pagestyle{empty}
+
+\fancyhead{}
+\fancyfoot{}
+
+\fancyhead[R]{J. Doe}
+\fancyhead[L]{\slshape \leftmark\/}
+% Thesis wants pagenumber at center
+%\fancyfoot[LE, RO]{\thepage}
+\fancyfoot[C]{\thepage}
+
+%\usepackage{fontspec}
+%\setmainfont[Ligatures=TeX]{Linux Libertine O}
+%\setmainfont[Ligatures=TeX]{Helvetica Neue}
+%\setsansfont[Ligatures=TeX]{Helvetica Neue}
+
+
+
+
+%  Typography and fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}   % Latin Modern fonts
+% small but nice refinements to typography
+\usepackage[expansion=false, tracking=false, protrusion=true]{microtype}
+\usepackage{setspace}   % Set line-spacing in document
+\addtokomafont{disposition}{\rmfamily}
+\addtokomafont{descriptionlabel}{\rmfamily}
+\usepackage[hyphens]{url}
+% Fancy colors for text and others
+\usepackage[dvipsnames]{xcolor}
+
+
+
+% Extended set of commands/fonts for use in mathematics
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{hyperref}   % ref,cite,toc are become hyperlinks
+\usepackage{nameref}   % input section name by \ref{}
+
+%  Figures and other floats
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% customizing captions
+\usepackage[centerlast, small, bf]{caption}
+\captionsetup{width=0.8\textwidth}
+\usepackage{graphicx}   % include graphics
+\usepackage{float}    % stricter positions [H]
+\usepackage{subfig}   % side-by-side images
+\usepackage{wrapfig}   % ability to have text to side of figure
+
+\usepackage{tikz}   % ability to draw tikzpicture
+\usetikzlibrary{shapes.multipart, fit, backgrounds, positioning}
+
+
+
+
+%  Nice to have
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{verbatim}   % include \begin{comment}
+\usepackage{fancyvrb}   % Flexiblible verbatim text
+
+\usepackage{csquotes}   % Display fancy quotations
+\usepackage{booktabs}   % enhances the quality of tables
+
+\usepackage{ragged2e} % alternative "prettier" \RaggedRight
+% Include bibliography into table of contents
+% (nottoc-dont include toc to toc)
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{lipsum}   % Enter dummy text
+\usepackage{blindtext}   % Enter dummy text
+
+\usepackage{minted}   % MUCH better codelisting
+
+
+% https://tex.stackexchange.com/questions/10504/place-figures-side-by-side-spill-into-outer-margin/10507#10507
+\usepackage{ifoddpage}
+
+
+
+%\usepackage{listings}
+%\usepackage{color}
+%
+%\definecolor{matcom}{rgb}{0.0,0.5,0.0}
+%\definecolor{matkey}{rgb}{0.0,0.0,1.0}
+%\definecolor{matstr}{rgb}{0.0,0.5,0.0}
+%\definecolor{matbg}{rgb}{0.9,0.9,0.9}
+%
+%\lstset{language=Matlab,
+%basicstyle=\ttfamily,
+%inputencoding=utf8,
+%showstringspaces=false,
+%numberstyle=\ttfamily,
+%keywordstyle=\color{matkey},
+%stringstyle=\color{matstr},
+%commentstyle=\color{matcom},
+%backgroundcolor=\color{matbg},
+%frame=lines,
+%breaklines=true,
+%literate=%
+%{å}{{\r{a}}}1
+%{ä}{{\"a}}1
+%{ö}{{\"o}}1
+%{Å}{{\r{A}}}1
+%{Ä}{{\"A}}1
+%{Ö}{{\"O}}1
+%}

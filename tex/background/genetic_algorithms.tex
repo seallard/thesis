@@ -1,1 +1,17 @@
 \subsection{Genetic Algorithms}
+
+\begin{algorithm}[H]
+    \caption{Generic genetic algorithm}
+    \begin{algorithmic}
+
+\Procedure{GA}{}
+    \State Initialise population
+    \While{\textit{stopping condition not true}}
+        \State Selection \Comment{Evaluate fitness of each individual}
+        \State Reproduction \Comment{Apply crossover and mutation}
+        \State Replace the old population with the new
+    \EndWhile
+\EndProcedure
+
+\end{algorithmic}
+\end{algorithm}

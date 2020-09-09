@@ -1,7 +1,7 @@
 PDFLATEXOPT=--synctex=1 --shell-escape --interaction=batchmode --halt-on-error
 
 MAIN=main
-SOURCES=$(MAIN).tex Makefile tex/abstract.tex tex/introduction.tex tex/background.tex tex/method.tex tex/result.tex preamble.tex tex/title.tex bibliography/references.bib
+SOURCES=$(MAIN).tex Makefile tex/abstract.tex tex/introduction.tex tex/background/*.tex tex/method.tex tex/result.tex preamble.tex tex/title.tex bibliography/references.bib
 
 all: $(MAIN).pdf
 

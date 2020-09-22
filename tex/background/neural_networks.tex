@@ -1,4 +1,25 @@
-\subsection{Neural Networks}
+\subsection{Artificial Neural Networks}
+Artificial Neural Networks (ANNs) are function approximators loosely inspired by nervous systems.
+ANNs consist of nodes connected by weigthed directed links. Each node receives signals, either from
+the environment or other nodes. The nodes sum the incoming weighted signals and applies an activation
+function. The result of the activation function is forwarded as a signal to each of the connected nodes.
 
-\todo{Mention limitations of NNs, why it might not be suitable for some applications.}
-\todo{Illustration of NNs}
+The weights of the links serves as
+
+\todo{Add figure with illustration of artificial neuron}
+\label{Neural networks figure}
+
+
+
+Different learning algorithms are applied to update parameters of the network, such as the weights of the
+links or the topology, as to improve the final output.
+
+\todo{Describe activation functions}
+These activation functions mimics the behaviour of biological neurons, where the neuron propagates
+a signal only if the incoming signals exceed some threshold.
+
+\todo{Describe bias neurons}
+
+\todo{Describe different topologies}
+Links that go backwards towards the inputs, so called recurrent links, gives the network short-term memory.
+

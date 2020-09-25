@@ -1,35 +1,42 @@
+\newpage
 \subsection{Artificial Neural Networks}
+\todo{Provide overview of ANNs without unnecessary details. This part should introduce the structure and components of ANNs.}
+\newline
 Artificial Neural Networks (ANNs) are function approximators loosely inspired by nervous systems.
-ANNs consist of nodes connected by directed links. Each node receives signals, either from
+ANNs consist of nodes connected by directed links (see Figure \ref{feedforward}). Each node receives signals, either as input from
 the environment or other nodes. Each link is associated with a weight which inhibits or excites the signal passing
 over it. The nodes sum the incoming weighted signals, calculating a net input signal. A function
 is applied to the net input signal to generate an output signal. The function is referred to as an activation function
 and regulates the strength of the output signal given the net input signal. The signal is propagated through the network
 until it reaches the final output node or nodes.
 
-\todo{Add figure with illustration of artificial neuron}
+
+\begin{figure}[htb]
+	\centering
+	\resizebox{.4\textwidth}{!}{\input{resources/tex/neuron.tex}}
+	\caption{A node in an ANN.}
+	\label{neuron}
+\end{figure}
 
 
-%https://github.com/battlesnake/neural
-%https://tex.stackexchange.com/questions/153957/drawing-neural-network-with-tikz
+\begin{figure}[htb]
+	\centering
+	\resizebox{.4\textwidth}{!}{\input{resources/tex/feedforward.tex}}
+	\caption{A feedforward artificial neural network.}
+	\label{feedforward}
+\end{figure}
 
-\label{Neural networks figure}
-
-\begin{neuralnetwork}[height=4]
-    \newcommand{\x}[2]{$x_#2$}
-    \newcommand{\y}[2]{$\hat{y}_#2$}
-    \newcommand{\hfirst}[2]{\small $h^{(1)}_#2$}
-    \newcommand{\hsecond}[2]{\small $h^{(2)}_#2$}
-    \inputlayer[count=3, bias=true, title=Input\\layer, text=\x]
-    \hiddenlayer[count=4, bias=false, title=Hidden\\layer 1, text=\hfirst] \linklayers
-    \outputlayer[count=2, title=Output\\layer, text=\y] \linklayers
-\end{neuralnetwork}
+\todo{Provide overview of what it means to train a ANN without unnecessary details}
+\newline
+Different learning algorithms exist to update parameters of the network, such as the weights of the
+links, as to improve the final output. The process in which the parameters of the network is updated
+is referred to as training. For example, supervised learning algorithms for ANNs use input-output examples
+to train the network. The input example is fed into the network and the output of the network is compared to
+the expected output of the example. The difference is used to update the weights in the network as to decrease
+the error for the current example.
 
 
-Different learning algorithms are applied to update parameters of the network, such as the weights of the
-links or the topology, as to improve the final output.
-
-\todo{Describe activation functions}
+\todo{Provide more detailed}
 These activation functions mimics the behaviour of biological neurons, where the neuron propagates
 a signal only if the incoming signals exceed some threshold.
 

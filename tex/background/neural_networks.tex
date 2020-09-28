@@ -2,6 +2,8 @@
 \subsection{Artificial Neural Networks}
 \todo{Provide overview of ANNs without unnecessary details. This part should introduce the structure and components of ANNs.}
 \newline
+\todo{Feedback: explain what is meant by "input from the environment"}
+\newline
 Artificial Neural Networks (ANNs) are function approximators loosely inspired by nervous systems.
 ANNs consist of nodes connected by directed links (see Figure \ref{feedforward}). Each node receives signals, either as input from
 the environment or other nodes. Each link is associated with a weight which inhibits or excites the signal passing
@@ -12,23 +14,28 @@ until it reaches the final output node or nodes.
 
 
 \begin{figure}[htb]
-	\centering
-	\resizebox{.4\textwidth}{!}{\input{resources/tex/neuron.tex}}
-	\caption{A node in an ANN.}
-	\label{neuron}
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \resizebox{0.7\textwidth}{!}{\input{resources/tex/feedforward.tex}}
+            \caption{ANN example.}
+            \label{feedforward}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \resizebox{0.9\textwidth}{!}{\input{resources/tex/neuron.tex}}
+            \caption{Node in ANN.}
+            \label{neuron}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{An overview of the components of ANNs. (a) A so called feed-forward ANN in which no cycle occurs. (b)
+             A detailed view of the bold path in (a).}
 \end{figure}
 
-
-\begin{figure}[htb]
-	\centering
-	\resizebox{.4\textwidth}{!}{\input{resources/tex/feedforward.tex}}
-	\caption{A feedforward artificial neural network.}
-	\label{feedforward}
-\end{figure}
 
 \todo{Provide overview of what it means to train a ANN without unnecessary details}
 \newline
-Different learning algorithms exist to update parameters of the network, such as the weights of the
+Different algorithms exist to update parameters of the network, such as the weights of the
 links, as to improve the final output. The process in which the parameters of the network is updated
 is referred to as training. For example, supervised learning algorithms for ANNs use input-output examples
 to train the network. The input example is fed into the network and the output of the network is compared to

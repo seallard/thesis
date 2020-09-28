@@ -9,35 +9,33 @@
     \tikzstyle{bias neuron}=[neuron, fill=yellow!50];
     \tikzstyle{annot} = [text width=4em, text centered]
 
-    % Draw the input layer nodes
+    % Draw the input layer nodes.
     \foreach \name / \y in {1,...,3}
-    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
-        \node[input neuron, pin=left:Input \y] (I-\name) at (0,-\y) {};
+        \node[input neuron] (I-\name) at (0,-\y) {};
 
-    % Draw the hidden layer nodes
+    % Draw the hidden layer nodes.
     \foreach \name / \y in {1,...,4}
         \path[yshift=0.5cm]
             node[hidden neuron] (H-\name) at (\layersep,-\y cm) {};
 
     % Draw the output layer nodes
-    \node[output neuron,pin={[pin edge={->}]right:Output 1}, right of=H-2] (O) {};
-    \node[output neuron,pin={[pin edge={->}]right:Output 2}, right of=H-3] (1) {};
+    \node[output neuron,pin={[pin edge={->}]right:}, right of=H-2] (O) {};
+    \node[output neuron,pin={[pin edge={->}]right:}, right of=H-3] (1) {};
 
-    % Connect every node in the input layer with every node in the
-    % hidden layer.
+    % Connect input layer with hidden layer.
     \foreach \source in {1,...,3}
         \foreach \dest in {1,...,4}
             \path (I-\source) edge (H-\dest);
 
-    % Connect every node in the hidden layer with the output layer
+    % Connect hidden layer with output layer.
     \foreach \source in {1,...,4}
         \path (H-\source) edge (O);
 
     \foreach \source in {1,...,4}
         \path (H-\source) edge (1);
 
-    % Annotate the layers
-    \node[annot,above of=H-1, node distance=0.65cm] (hl) {Hidden};
-    \node[annot,left of=hl] {Inputs};
-    \node[annot,right of=hl] {Outputs};
+    % Annotate the layers.
+    %\node[annot,above of=H-1, node distance=0.65cm] (hl) {Hidden};
+    %\node[annot,left of=hl] {Inputs};
+    %\node[annot,right of=hl] {Outputs};
 \end{tikzpicture}

@@ -37,9 +37,9 @@
 
 
 % Extended set of commands/fonts for use in mathematics
-\usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{mathtools}
 
 \usepackage{hyperref}   % ref,cite,toc are become hyperlinks
 \usepackage{nameref}   % input section name by \ref{}
@@ -48,11 +48,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % customizing captions
 \usepackage[centerlast, small, bf]{caption}
-\captionsetup{width=0.8\textwidth}
+\captionsetup{width=0.85\textwidth}
+\setlength{\abovecaptionskip}{1pt} 
+\setlength{\belowcaptionskip}{1pt} 
+
+\usepackage{subcaption}
 \usepackage{graphicx}   % include graphics
 \usepackage{float}    % stricter positions [H]
-\usepackage{subfig}   % side-by-side images
 \usepackage{wrapfig}   % ability to have text to side of figure
+\usepackage{mdframed}
 
 \usepackage{tikz}   % ability to draw tikzpicture
 \usetikzlibrary{shapes.multipart, fit, backgrounds, positioning}

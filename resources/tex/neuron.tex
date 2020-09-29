@@ -22,10 +22,10 @@
 
     % Link the different parts of the graph
     \draw[->,thick] (summation)--(activation);
-    \draw[->] (activation)--(output1) node[pos=.6,above]{};
-    \draw[->] (activation)--(output2) node[pos=.6,below]{};
-    \draw[->] (input1)--(summation) node[pos=.4,above]{$w_{1}$};
-    \draw[->] (input2)--(summation) node[pos=.4,above]{$w_{2}$};
-    \draw[->] (input3)--(summation) node[pos=.4,above]{$w_{3}$};
+    \draw[->,line width=0.4mm] (activation)--(output1) node[pos=.6,above]{};
+    \draw[->,line width=0.4mm] (activation)--(output2) node[pos=.6,below]{};
+    \draw[->,line width=0.4mm] (input1)--(summation) node[pos=.4,above]{$w_{1}$};
+    \draw[->,line width=0.4mm] (input2)--(summation) node[pos=.4,above]{$w_{2}$};
+    \draw[->,line width=0.4mm] (input3)--(summation) node[pos=.4,above]{$w_{3}$};
     \draw[blue] (1,0) circle(2);
 \end{tikzpicture}

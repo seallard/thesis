@@ -1,16 +1,13 @@
 \newpage
 \subsection{Artificial Neural Networks}
-\todo{Provide overview of ANNs without unnecessary details. This part should introduce the structure and components of ANNs.}
-\newline
-\todo{Feedback: explain what is meant by "input from the environment"}
-\newline
 Artificial Neural Networks (ANNs) are function approximators loosely inspired by nervous systems.
-ANNs consist of nodes connected by directed links (see Figure \ref{feedforward}). Each node receives signals, either as input from
-the environment or other nodes. Each link is associated with a weight which inhibits or excites the signal passing
-over it. The nodes sum the incoming weighted signals, calculating a net input signal. A function
-is applied to the net input signal to generate an output signal. The function is referred to as an activation function
-and regulates the strength of the output signal given the net input signal. The signal is propagated through the network
-until it reaches the final output node or nodes.
+ANNs consist of nodes, also called neurons, connected by directed links (see Figure \ref{feedforward}). 
+A node is either an input node that receives external input data, an output node which sends out a final value computed
+by the network or a hidden node, a node that exists somewhere between the input and output nodes. Each node receives signals, either
+as the initial input or as signals from other nodes. Each link is associated with a weight which inhibits or excites the signal 
+passing over it. The nodes sum the incoming weighted signals, calculating a net input signal. A function is applied to the net input 
+signal to generate an output signal (see Figure \ref{neuron}). The function is referred to as an activation function and regulates the strength of the output 
+signal given the net input signal. The signal is propagated through the network until it reaches the final output node or nodes.
 
 
 \begin{figure}[htb]
@@ -28,27 +25,26 @@ until it reaches the final output node or nodes.
             \label{neuron}
         \end{subfigure}
     \end{mdframed}
-    \caption{(a) A so called feed-forward ANN in which no cycle occurs. (b) Illustration of what happens inside each non-input node of the network; input
+    \caption{(a) A feed-forward ANN. (b) Illustration of what happens inside each non-input node of the network; input
                  signals are weighted and summed forming a net input signal to which an activation function is applied.}
 \end{figure}
 
-
-\todo{Provide overview of what it means to train a ANN without unnecessary details}
-\newline
 Different algorithms exist to update parameters of the network, such as the weights of the
-links, as to improve the final output. The process in which the parameters of the network is updated
-is referred to as training. For example, supervised learning algorithms for ANNs use input-output examples
-to train the network. The input example is fed into the network and the output of the network is compared to
-the expected output of the example. The difference is used to update the weights in the network as to decrease
-the error for the current example.
+links, as to improve the output of the network for different inputs. The process in which the parameters of 
+the network is updated is referred to as training. For example, supervised learning algorithms for ANNs use input-output 
+examples to train the network. The input example is fed into the network and the output of the network is compared 
+to the expected output of the example. The difference is used to update the weights in the network as to decrease
+the error for the current example. After training the network with a sufficient number of examples, the expectation is 
+that the network has generalised, that is, it has learned the underlying mapping between the input and outputs of the examples.
 
 
-\todo{Provide more detailed}
+\todo{Add description of practical example to make everything more concrete.}
+\newline
+\todo{Describe different topologies and what properties they can give networks.}
+\newline
+\todo{Provide more detailed description of activation functions and bias nodes}
+\newline
 These activation functions mimics the behaviour of biological neurons, where the neuron propagates
 a signal only if the incoming signals exceed some threshold.
-
-\todo{Describe bias neurons}
-
-\todo{Describe different topologies}
 Links that go backwards towards the inputs, so called recurrent links, gives the network short-term memory.
 

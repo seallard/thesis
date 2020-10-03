@@ -1,4 +1,17 @@
+
 \subsection{Genetic Algorithms}
+\todo{Add examples of applications?}
+\newline
+\todo{Explain settings which you probably will talk about in discussion}
+\newline
+Genetic algorithms (GAs) are search algorithms based on evolution. GAs begin with
+a random population of individuals. Each individual represents a solution to the problem being
+studied. A fitness function scores how well each individual solves the problem. Variation is introduced 
+in the population by letting individuals reproduce with each other, usually in proportion to their fitness 
+scores. The offspring is formed by an operation called crossover which combine parts of the parent solutions, 
+much like the crossover between chromosomes during sexual reproduction in nature. A second source of variation
+is applied in the form of mutations, each gene is randomly altered with some probability.
+
 
 \begin{algorithm}[H]
     \caption{Generic genetic algorithm}
@@ -7,7 +20,8 @@
 \Procedure{GA}{}
     \State Initialise population
     \While{\textit{stopping condition not true}}
-        \State Selection \Comment{Evaluate fitness of each individual}
+        \State Evaluation \Comment{Evaluate fitness of each individual}
+        \State Selection  \Comment{Select individuals for reproduction}
         \State Reproduction \Comment{Apply crossover and mutation}
         \State Replace the old population with the new
     \EndWhile

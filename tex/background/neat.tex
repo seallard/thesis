@@ -1,15 +1,19 @@
 \newpage
 
 \subsection{Neuroevolution of Augmenting Topologies}
-Neuroevolution of Augmenting Topologies (NEAT) is an algorithm that optimises the topology and weights of neural networks.
+Neuroevolution uses evolutionary algorithms, such as genetic algorithms, to train neural networks \cite{neuroevolution_review}.
+One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of neural networks \cite{neat_main}.
+It gained traction when published since it adressed some previous problems in neuroevolution and illustrated that the learning speed could
+be increased by evolving the structure of networks.
 
+NEAT uses a direct encoding; genomes contain connection and node genes which specify the network (see figure).
+The innovation number attribute of the connection gene is used during crossover to align genes of the same origin.
 
-Neuroevolution combines genetic algorithms with neural networks to evolve parameters of networks. The idea of 
-neuroevolution arose in the XXs as an extension of previous research on...
-One subset of neuroevolution algorithms are Topology and Weight Evolving Neural Networks (TWEANNs). These
-evolve both the topology and weights.
+\todo{Mutation operator figure}
+\newline
+\todo{Crossover figure}
+\newline
+\todo{Add illustration of NEAT genes here}
+\newline
+\todo{Add SUPER illustration of NEAT here}
 
-One TWEANN called Neuroevolution of Augmenting Topologies (NEAT) has been especially successful [...].
-NEAT addressed three previously unsolved problems within neuroevolution, which are outlined in the subsections below.
-
-\todo{Illustration of neuroevolution here, combination of RL, GA and NN illustrations}

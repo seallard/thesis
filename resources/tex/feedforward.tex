@@ -42,7 +42,7 @@
     \foreach \dest in {1,...,2}
         \draw[->,line width=0.4mm] (H-1)--(O-\dest) node[pos=.6,above]{};
     % Annotate the layers.
-    %\node[annot,above of=H-1, node distance=0.65cm] (hl) {Hidden};
-    %\node[annot,left of=hl] {Inputs};
-    %\node[annot,right of=hl] {Outputs};
+    \node[annot,above of=H-1, node distance=0.65cm] (hl) {Hidden};
+    \node[annot,left of=hl] {Inputs};
+    \node[annot,right of=hl] {Outputs};
 \end{tikzpicture}

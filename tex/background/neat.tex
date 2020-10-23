@@ -7,20 +7,29 @@ It gained traction when published since it adressed some previous problems in ne
 be increased by evolving the structure of the networks.
 
 NEAT uses a direct encoding; genomes contain link and node genes which specify the network. Each link gene references
-the two node genes it span (see Figure).
+the two node genes it span (see Figure \ref{mapping}).
+
+\input{resources/tex/genotype_phenotype.tex}
+
+The initial population of genomes consists of structurally identical fully connected networks without any hidden nodes.
+New structures emerge by mutations which can add new node or link genes to the genomes. New structures can also be created
+during crossover, in which the genes of two genomes are combined.
+
+\todo{Add illustration of mutations here}
+
+\todo{Explain innovation numbers}
+\newline
+The id attribute of the genes, referred to as an innovation number, serves to uniquely identify each mutation that has occured.
+A database mapping the innovation numbers with their corresponding structure is maintained, enabling identical structures to be labeled as such.
+These numbers are used during speciation and crossover. NEAT divides the population of genomes into species based on their structural
+similarity, which is measured as a compatibility score.
 
 
-\begin{figure}[htb]
-    \resizebox{0.5\textwidth}{!}{\input{resources/tex/genotype_phenotype.tex}}
-\end{figure}
-...
-The innovation number attribute of the connection gene is used during crossover to align genes of the same origin.
 
-\todo{Mutation operator figure}
+\todo{Explain crossover}
 \newline
-\todo{Crossover figure}
-\newline
-\todo{Add illustration of NEAT genes here}
-\newline
+
+
+\todo{Explain speciation and fitness sharing}
+
 \todo{Add SUPER illustration of NEAT here}
-

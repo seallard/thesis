@@ -1,18 +1,18 @@
-\setlength{\arrayrulewidth}{1mm}
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1}
-
-%\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{0.5cm}}
-
-\arrayrulecolor[HTML]{DB5800}
-
-\begin{tabular}{ |p{0.5cm}|p{0.5cm}|p{0.7cm}|p{1.5cm}|p{1.5cm}|  }
-    \hline
-    \multicolumn{5}{|c|}{Connection genes} \\
-
-    \hline
-    Id & In & Out & Weight & Enabled \\
-
-    \hline
-
-\end{tabular}
+\begin{figure}[htb]
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \resizebox{1\textwidth}{!}{\input{resources/tex/genotype.tex}}
+            \caption{Genotype.}
+            \label{genotype}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \resizebox{0.65\textwidth}{!}{\input{resources/tex/phenotype.tex}}
+            \caption{Phenotype.}
+            \label{phenotype}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{Example of a genome and its corresponding ANN phenotype.}
+    \label{mapping}
+\end{figure}

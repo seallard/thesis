@@ -1,12 +1,19 @@
 \newpage
 
 \subsection{Neuroevolution of Augmenting Topologies}
-Neuroevolution uses evolutionary algorithms, such as genetic algorithms, to train neural networks \cite{neuroevolution_review}.
-One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of neural networks \cite{neat_main}.
+Neuroevolution uses evolutionary algorithms, such as genetic algorithms, to optimise ANNs \cite{neuroevolution_review}.
+One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of ANNs \cite{neat_main}.
 It gained traction when published since it adressed some previous problems in neuroevolution and illustrated that the learning speed could
-be increased by evolving the structure of networks.
+be increased by evolving the structure of the networks.
 
-NEAT uses a direct encoding; genomes contain connection and node genes which specify the network (see figure).
+NEAT uses a direct encoding; genomes contain link and node genes which specify the network. Each link gene references
+the two node genes it span (see Figure).
+
+
+\begin{figure}[htb]
+    \resizebox{0.5\textwidth}{!}{\input{resources/tex/genotype_phenotype.tex}}
+\end{figure}
+...
 The innovation number attribute of the connection gene is used during crossover to align genes of the same origin.
 
 \todo{Mutation operator figure}

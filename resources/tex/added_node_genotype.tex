@@ -1,0 +1,35 @@
+\setlength{\arrayrulewidth}{0.01mm}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1}
+
+\arrayrulecolor[HTML]{000000}
+
+\vspace{0.2cm}
+\begin{tabular}{ |p{0.5cm}|p{1.8cm}|  }
+    \hline
+    \rowcolor{lightgray} \multicolumn{2}{|c|}{Node genes} \\
+    \hline
+    Id & Type \\
+    \hline
+    1 & \cellcolor{green!50} INPUT \\
+    \hline
+    2 & \cellcolor{green!50} INPUT \\
+    \hline
+    3 & \cellcolor{red!50} OUTPUT \\
+    \hline
+    4 & \cellcolor{blue!50} HIDDEN \\
+    \hline
+\end{tabular}
+
+\begin{tabular}{ |p{0.5cm}|p{0.5cm}|p{0.7cm}|p{1.2cm}|p{1.4cm}|  }
+    \hline
+    \rowcolor{lightgray} \multicolumn{5}{|c|}{Connection genes} \\
+    \hline
+    Id & In & Out & Weight & Enabled \\
+    \hline
+    1 & \cellcolor{green!50} 1 & \cellcolor{red!50} 3 & 0.3 & True \\
+    2 & \cellcolor{green!50} 2 & \cellcolor{red!50} 3 & 0.5 & False \\
+    3 & \cellcolor{green!50} 2 & \cellcolor{blue!50} 4 & 1 & True \\
+    4 & \cellcolor{blue!50} 4 & \cellcolor{red!50} 2 & 0.5 & True \\
+    \hline
+\end{tabular}

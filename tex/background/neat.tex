@@ -3,31 +3,33 @@
 \subsection{Neuroevolution of Augmenting Topologies}
 Neuroevolution uses evolutionary algorithms, such as genetic algorithms, to optimise ANNs \cite{neuroevolution_review}.
 One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of ANNs \cite{neat_main}.
-It gained traction when published since it adressed some previous problems in neuroevolution and illustrated that the learning speed could
+It gained traction when published since it adressed some previous problems in neuroevolution and illustrated how the learning speed could
 be increased by evolving the structure of the networks.
 
-NEAT uses a direct encoding; genomes contain link and node genes which specify the network. Each link gene references
-the two node genes it span (see Figure \ref{mapping}).
+NEAT uses a direct encoding; genomes contain connection and node genes which specify the network. Each connection gene is identified
+by a number and references the two node genes it spans, whether it is enabled and its weight (see Figure \ref{mapping}). The node gene
+is also identified by a number and what type it is of.
 
 \input{resources/tex/genotype_phenotype.tex}
 
-The initial population of genomes consists of structurally identical fully connected networks without any hidden nodes.
-New structures emerge by mutations which can add new node or link genes to the genomes. New structures can also be created
-during crossover, in which the genes of two genomes are combined.
+The initial population of genomes consists of structurally identical and fully connected networks without any hidden nodes.
+New structures emerge by mutations which can add new node or connection genes to the genomes. Nodes are added by splitting an existing
+connection, which is disabled and two new connection genes are added along with the new node gene (see Figure \ref{node_mutation}).
 
-\todo{Add illustration of mutations here}
+\input{resources/tex/added_node_mutation.tex}
 
-\todo{Explain innovation numbers}
-\newline
+Mutations can also add new links, which connect any previously unconnected nodes (see Figure \ref{link_mutation}).
+Self loops and recurrent connections are allowed. A list of additional mutations employed by NEAT are outlined in Table X.
+
+\input{resources/tex/added_link_mutation.tex}
+
+New structures can also be created during crossover, in which the genes of two genomes are combined.
 The id attribute of the genes, referred to as an innovation number, serves to uniquely identify each mutation that has occured.
-A database mapping the innovation numbers with their corresponding structure is maintained, enabling identical structures to be labeled as such.
+A database mapping the innovation numbers with their corresponding structure is maintained. Each time a mutation occurs, the database
+is referenced to check whether it has occured previously.
+enabling identical structures to be labeled as such.
 These numbers are used during speciation and crossover. NEAT divides the population of genomes into species based on their structural
 similarity, which is measured as a compatibility score.
-
-
-
-\todo{Explain crossover}
-\newline
 
 
 \todo{Explain speciation and fitness sharing}

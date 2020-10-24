@@ -1,0 +1,11 @@
+
+\begin{tikzpicture}
+    \tikzstyle{box} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.8cm,text centered, draw=black, fill=gray!10]
+
+    % Phenotypes
+    \node [box] (phenotypes) {};
+    \node [anchor=north] at (phenotypes.north) {phenotypes};
+    \node (phenotype1) [anchor=south west] at (phenotypes.south west) {\resizebox{0.05\textwidth}{!}{\input{resources/tex/overview/network.tex}}};
+    %\node (phenotype2) [anchor=south west] at (phenotype1.south west) {\resizebox{0.05\textwidth}{!}{\input{resources/tex/overview/network.tex}}};
+    %\node (phenotype3) [anchor=south west] at (phenotype2.south west) {\resizebox{0.05\textwidth}{!}{\input{resources/tex/overview/network.tex}}};
+\end{tikzpicture}

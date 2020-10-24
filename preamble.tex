@@ -88,3 +88,25 @@
 
 \usepackage{blindtext}   % Enter dummy text
 \usepackage{ifoddpage}
+
+
+
+% Draw colored lines (genomes)
+\newlength{\colorsegmentlength}% Used internally
+\newlength{\colortotallength}% Used internally
+\newcounter{colorcounter}% Used internally
+
+\newcommand{\coloredrulei}[3]{% {segment length}{rule height}{colors}
+  \renewcommand*{\do}[1]{%
+    \textcolor{##1}{\rule{#1}{#2}}}
+  \begingroup\docsvlist{#3}\endgroup}
+
+\newcommand{\coloredrule}[3]{% {total length}{rule height}{colors}
+  \setlength{\colortotallength}{#1}
+  \renewcommand*{\do}[1]{%
+      \stepcounter{colorcounter}}
+    \setcounter{colorcounter}{0}
+    \docsvlist{#3}
+  \setlength{\colorsegmentlength}{%
+    \dimexpr \numexpr \colortotallength / \value{colorcounter} \relax sp \relax}
+  \coloredrulei{\colorsegmentlength}{#2}{#3}}

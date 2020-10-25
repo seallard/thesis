@@ -1,11 +1,14 @@
 
 
-\node [box] (crossover) {};
-\node [anchor=north] at (crossover.north) {Crossover};
+\node [box] (reproduction) {};
+\node [anchor=north] at (reproduction.north) {Reproduction};
 
-\node (line1) [anchor=south west] at (crossover.south west) {$\coloredrule{10mm}{1mm}{green!75}$};
-\node (line2) [anchor=south west] at (line1.south east) {$\coloredrule{10mm}{1mm}{red!75}$};
-\node (line3) [anchor=south west] at (line2.south east) {$\coloredrule{10mm}{1mm}{blue!75}$};
-\node (line4) [anchor=south west] at (line1.north west) {$\coloredrule{10mm}{1mm}{green!50}$};
-\node (line5) [anchor=south west] at (line2.north west) {$\coloredrule{10mm}{1mm}{red!50}$};
-\node (line6) [anchor=south west] at (line3.north west) {$\coloredrule{10mm}{1mm}{blue!50}$};
+\node (line1) [anchor=south west] at (reproduction.south west) {$\coloredrule{10mm}{1mm}{OliveGreen, green}$};
+\node (line2) [anchor=south west] at (line1.south east) {$\coloredrule{10mm}{1mm}{red, Salmon}$};
+\node (line3) [anchor=south west] at (line2.south east) {$\coloredrule{10mm}{1mm}{blue, Periwinkle}$};
+\node (line4) [anchor=south west] at (line1.north west) {$\coloredrule{10mm}{1mm}{green, OliveGreen}$};
+\node (line5) [anchor=south west] at (line2.north west) {$\coloredrule{10mm}{1mm}{Salmon, red}$};
+\node (line6) [anchor=south west] at (line3.north west) {$\coloredrule{10mm}{1mm}{Periwinkle, blue}$};
+\node (line7) [anchor=south west] at (line4.north west) {$\coloredrule{10mm}{1mm}{green}$};
+\node (line8) [anchor=south west] at (line5.north west) {$\coloredrule{10mm}{1mm}{red}$};
+\node (line9) [anchor=south west] at (line6.north west) {$\coloredrule{10mm}{1mm}{blue}$};

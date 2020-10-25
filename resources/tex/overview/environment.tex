@@ -1,4 +1,14 @@
+\tikzstyle{box} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=1.2cm,text centered, draw=black]
 
-\node [box] (evaluation) {};
-\node [anchor=north] at (evaluation.north) {Evaluation};
+\node [box] (agent) {};
+\node [anchor=north] at (agent.north) {Agent};
 
+\node (network) [anchor=south] at (agent.south) {\resizebox{0.15\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
+
+\tikzstyle{box} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=0.8cm,text centered, draw=black]
+\node [box, right=1.4cm of agent] (environment) {Environment};
+\tikzstyle{arrow} = [thick,->,>=stealth]
+%\draw[-latex, thick] (agent) -- (agent-|environment.west) node[midway, below, text width=1cm]{action};
+\draw [arrow] (environment.north) --++(0,0.1) |- (agent.north);
+
+%\draw[-latex, thick] (environment.north) -- (environment.north-|agent.north) node[midway, above, text width=1cm]{reward};

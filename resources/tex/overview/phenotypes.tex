@@ -1,17 +1,14 @@
+\tikzstyle{box} = [rectangle, rounded corners, minimum width=3.8cm, minimum height=2.3cm,text centered, draw=black, fill=gray!10]
 
-\begin{tikzpicture}
-    \tikzstyle{box} = [rectangle, rounded corners, minimum width=4cm, minimum height=2.5cm,text centered, draw=black, fill=gray!10]
-
-    % Phenotypes
-    \node [box] (phenotypes) {};
-    \node [anchor=north] at (phenotypes.north) {Phenotypes};
-    \node (phenotype1) [anchor=south west] at (phenotypes.south west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};
-    \node (phenotype2) [anchor=south west] at (phenotype1.south east) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
-    \node (phenotype3) [anchor=south west] at (phenotype2.south east) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
-    \node (phenotype4) [anchor=south west] at (phenotype1.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
-    \node (phenotype5) [anchor=south west] at (phenotype2.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};
-    \node (phenotype6) [anchor=south west] at (phenotype3.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
-    \node (phenotype7) [anchor=south west] at (phenotype4.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
-    \node (phenotype8) [anchor=south west] at (phenotype5.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
-    \node (phenotype9) [anchor=south west] at (phenotype6.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};
-\end{tikzpicture}
+% Phenotypes
+\node [box] (phenotypes) {};
+\node [anchor=north] at (phenotypes.north) {Phenotypes};
+\node (phenotype1) [anchor=south west] at (phenotypes.south west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};
+\node (phenotype2) [anchor=south west] at (phenotype1.south east) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
+\node (phenotype3) [anchor=south west] at (phenotype2.south east) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
+\node (phenotype4) [anchor=south west] at (phenotype1.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
+\node (phenotype5) [anchor=south west] at (phenotype2.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};
+\node (phenotype6) [anchor=south west] at (phenotype3.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
+\node (phenotype7) [anchor=south west] at (phenotype4.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species2.tex}}};
+\node (phenotype8) [anchor=south west] at (phenotype5.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species3.tex}}};
+\node (phenotype9) [anchor=south west] at (phenotype6.north west) {\resizebox{0.07\textwidth}{!}{\input{resources/tex/overview/species1.tex}}};

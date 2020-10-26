@@ -10,7 +10,13 @@
             \input{resources/tex/overview/phenotypes.tex}
         \end{scope}
 
-        \begin{scope}[xshift=7.7cm, yshift=-2.4cm, scale=0.8, every node/.append style={transform shape}]
+        \begin{scope}[xshift=9.5cm, yshift=-2.4cm, every node/.append style={transform shape}]
+            \tikzstyle{box} = [rectangle, rounded corners, minimum width=4.7cm, minimum height=2.2cm,text centered, draw=black, fill=gray!10]
+            \node [box] (evaluation) {};
+            \node [anchor=north] at (evaluation.north) {Evaluation};
+        \end{scope}
+
+        \begin{scope}[xshift=8.5cm, yshift=-2.5cm, scale=0.6, every node/.append style={transform shape}]
             \input{resources/tex/overview/environment.tex}
         \end{scope}
 
@@ -29,6 +35,14 @@
         \begin{scope}[xshift=0cm, yshift=-2.5cm]
             \input{resources/tex/overview/mutation.tex}
         \end{scope}
+
+        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (population) -- (phenotypes);
+        \draw[-latex, thick, shorten >=0.3cm, shorten <=0.3cm] (phenotypes.east) -- (evaluation);
+        \draw[-latex, thick,shorten >=0.1cm, shorten <=0.1cm] (evaluation) -- (speciate);
+        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (speciate) -- (selection);
+        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (selection) -- (reproduction);
+        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (reproduction) -- (mutation);
+        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (mutation) -- (population);
 
     \end{tikzpicture}
     \end{mdframed}

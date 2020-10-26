@@ -8,7 +8,6 @@
 \tikzstyle{box} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=0.8cm,text centered, draw=black]
 \node [box, right=1.4cm of agent] (environment) {Environment};
 \tikzstyle{arrow} = [thick,->,>=stealth]
-%\draw[-latex, thick] (agent) -- (agent-|environment.west) node[midway, below, text width=1cm]{action};
-\draw [arrow] (environment.north) --++(0,0.1) |- (agent.north);
-
-%\draw[-latex, thick] (environment.north) -- (environment.north-|agent.north) node[midway, above, text width=1cm]{reward};
+\draw[-latex, thick] (agent) -- (agent-|environment.west) node[midway, below, text width=1cm]{action};
+\draw[-latex, thick]  (environment) -- node {} ++(0,1cm) -| (agent) node[pos=0.25, below] {reward} node[pos=0.75] {};
+\draw[-latex, thick]  (environment) -- node {} ++(0,-1cm) -| node {} ++(-5.5cm,0cm) node[pos=0.25, below] {state observation}  -| node {} ++(0,0.8cm) -| (agent.west);

@@ -24,14 +24,18 @@ signals from a previous time step.
 
 \input{resources/tex/added_link_mutation.tex}
 
-New structures can also be created during crossover, in which the genes of two genomes are combined.
 The id attribute of the genes, referred to as an innovation number, serves to uniquely identify each mutation that has occured.
 Each time a new link or node is added, a database containing all previous mutations and their ids is referenced.
 As such, identical mutations are labeled with the same id.
-These numbers are used during speciation and crossover. NEAT divides the population of genomes into species based on their structural
+
+These innovation numbers are used during speciation and crossover. NEAT divides the population of genomes into species based on their structural
 similarity, which is measured as a compatibility score.
 
+Crossover, a type of operator described in (avsnitt om gas), combine the genes of two genomes.
 
+\todo{Mention other mutations}
+\todo{Explain crossover}
 \todo{Explain speciation and fitness sharing}
 
 \input{resources/tex/overview/overview.tex}
+\todo{Add description}

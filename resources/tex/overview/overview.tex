@@ -6,43 +6,43 @@
             \input{resources/tex/overview/population.tex}
         \end{scope}
 
-        \begin{scope}[xshift=5cm]
+        \begin{scope}[xshift=4.6cm]
             \input{resources/tex/overview/phenotypes.tex}
         \end{scope}
 
-        \begin{scope}[xshift=9.5cm, yshift=-2.4cm, every node/.append style={transform shape}]
-            \tikzstyle{box} = [rectangle, rounded corners, minimum width=4.7cm, minimum height=2.2cm,text centered, draw=black, fill=gray!10]
+        \begin{scope}[xshift=9.8cm, yshift=-0.04cm, every node/.append style={transform shape}]
+            \tikzstyle{box} = [rectangle, rounded corners, minimum width=4.7cm, minimum height=2.2cm,text centered, draw=black, fill=white!10]
             \node [box] (evaluation) {};
             \node [anchor=north] at (evaluation.north) {Evaluation};
         \end{scope}
 
-        \begin{scope}[xshift=8.5cm, yshift=-2.5cm, scale=0.6, every node/.append style={transform shape}]
+        \begin{scope}[xshift=8.8cm, yshift=-0.04cm, scale=0.6, every node/.append style={transform shape}]
             \input{resources/tex/overview/environment.tex}
         \end{scope}
 
-        \begin{scope}[xshift=10cm, yshift=-5cm]
+        \begin{scope}[xshift=10cm, yshift=-2.6cm]
             \input{resources/tex/overview/speciation.tex}
         \end{scope}
 
-        \begin{scope}[xshift=5cm, yshift=-5cm]
+        \begin{scope}[xshift=7.5cm, yshift=-5cm]
             \input{resources/tex/overview/selection.tex}
         \end{scope}
 
-        \begin{scope}[xshift=0cm, yshift=-5cm]
+        \begin{scope}[xshift=2.5cm, yshift=-5cm]
             \input{resources/tex/overview/crossover.tex}
         \end{scope}
 
-        \begin{scope}[xshift=0cm, yshift=-2.5cm]
+        \begin{scope}[xshift=0cm, yshift=-2.6cm]
             \input{resources/tex/overview/mutation.tex}
         \end{scope}
 
-        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (population) -- (phenotypes);
-        \draw[-latex, thick, shorten >=0.3cm, shorten <=0.3cm] (phenotypes.east) -- (evaluation);
+        \draw[-latex, thick, shorten >=0.1cm, shorten <=0.1cm] (population) -- (phenotypes);
+        \draw[-latex, thick, shorten >=0.1cm, shorten <=0.2cm] (phenotypes.east) -- (evaluation);
         \draw[-latex, thick,shorten >=0.1cm, shorten <=0.1cm] (evaluation) -- (speciate);
         \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (speciate) -- (selection);
         \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (selection) -- (reproduction);
         \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (reproduction) -- (mutation);
-        \draw[-latex, thick, shorten >=0.2cm, shorten <=0.2cm] (mutation) -- (population);
+        \draw[-latex, thick,shorten >=0.1cm, shorten <=0.1cm] (mutation) -- (population);
 
     \end{tikzpicture}
     \end{mdframed}

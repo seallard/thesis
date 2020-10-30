@@ -3,25 +3,24 @@
 \subsection{Neuroevolution of Augmenting Topologies}
 Neuroevolution uses evolutionary algorithms, such as genetic algorithms, to optimise ANNs \cite{neuroevolution_review}.
 One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of ANNs \cite{neat_main, neat_short, neat_phd}.
-It gained traction when published since it adressed some previous problems in neuroevolution and illustrated how the learning speed could
-be increased by evolving the structure of the networks. Additional versions of NEAT has been created which enables evolving networks
-of larger scale and complexity more efficiently.
+It gained traction when published since it adressed some previous problems in neuroevolution and illustrated how the structure of ANNs could be
+evolved as to increase the learning speed. Other versions of NEAT have been developed since which can evolve ANNs of larger scale and complexity more efficiently.
 
-NEAT uses a direct encoding; genomes contain connection and node genes which specify the network. Each connection gene is identified
-by a number and references the two node genes it spans (see Figure \ref{mapping}). The node gene is also identified by a number.
+NEAT uses a direct encoding; genomes contain connection and node genes which specify the network (see Figure \ref{mapping}). Each connection gene is identified
+by a number and references the two node genes it spans. The node gene is also identified by a number.
 
 \input{resources/tex/genotype_phenotype.tex}
 
 The initial population of genomes consists of structurally identical and fully connected networks without any hidden nodes.
-New structures emerge by mutations which can add new node or connection genes to the genomes. Nodes are added by splitting an existing
+New structures emerge through structural mutations which can add new node or connection genes to the genomes. Nodes are added by splitting an existing
 connection, which is disabled and two new connection genes are added along with the new node gene (see Figure \ref{node_mutation}).
 
 \input{resources/tex/added_node_mutation.tex}
 
-Mutations can also add new links, which connect any previously unconnected nodes (see Figure \ref{link_mutation}).
-Self loops and recurrent connections are allowed.
-
-The weights of the connections are also be mutated by being slightly perturbed. A list of additional mutations employed by NEAT are outlined in Table X.
+Mutations can also add new connections, which span any two previously unconnected nodes (see Figure \ref{link_mutation}).
+Connections can be of three types, depending on their output node. Loops are connections that start and end on the same node. Recurrent connections go backwards in the network to a node closer to an
+input node. Finally, forward connections end on a node closer to an output node. The first two types of connections can provide a form of short term memory by repeating
+signals from a previous time step.
 
 \input{resources/tex/added_link_mutation.tex}
 

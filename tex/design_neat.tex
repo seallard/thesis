@@ -1,4 +1,31 @@
 
+\newpage
 \section{Design and Implementation of NEAT}
 \subsection{Overview}
-\subsection{Verification of Functionality}
+I implemented NEAT in Python.
+
+\subsection{Verification of functionality}
+XOR is not linearly separable (see figure) which imposes some requirements on the ANN structures able to solve it (see figure).
+As such, it is a suitable problem to use as a sanity check. Another advantage is that it provides a direct way to compare my
+implementation with the original one, since they also used XOR and published their results \cite{neat_main}.
+
+Each network was evaluated against the four input examples (see figure) and assigned a fitness according to the following expression
+
+\begin{equation*} \label{eq:1}
+    (4 - \sum_{i=1}^{4} expected_{i} - actual_{i})^2
+\end{equation*}
+
+where $expected_{i}$ is the correct answer for example $i$ and $actual_{i}$ is the actual output of the network for example $i$.
+
+Data was collected from 100 runs. Each run was terminated once a network was found that solved
+XOR or the number of networks evaluated exceeded 20 000. The parameters used can be found in
+appendix \ref{parameter_values} and were largely based on the ones used in \cite{neat_phd}.
+
+My results were largely consistent with the ones reported in \cite{neat_main}. The main difference
+is that, while mine finds solutions in fewer evaluations, the networks are on average larger and
+fewer minimal networks are found. The standard deviations are also slightly larger, indicating that
+my implementation is more inconsistent in the networks it produces.
+
+
+\todo{Add figure with: truth vals of XOR, plot of XOR and minimal network able to solve XOR (show weights!)}
+\todo{Add histogram plot}

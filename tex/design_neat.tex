@@ -1,42 +1,55 @@
-
 \newpage
+
 \section{Design and Implementation of NEAT}
+
 \subsection{Overview}
-I implemented NEAT in Python.
 
 \subsection{Verification of functionality}
-XOR is not linearly separable (see figure) which imposes some requirements on the ANN structures able to solve it (see figure).
+XOR is not linearly separable which imposes some requirements on the ANN structures able to solve it (see figure).
 As such, it is a suitable problem to use as a sanity check. Another advantage is that it provides a direct way to compare my
 implementation with the original one, since they published their results for XOR \cite{neat_main}.
 
-Each network was evaluated with the four XOR input examples (see figure) and assigned a fitness according to the following expression
-
+Each network was evaluated with the four XOR input examples and assigned a fitness according to the following expression
 \begin{equation*} \label{eq:1}
     (4 - \sum_{i=1}^{4} expected_{i} - actual_{i})^2
 \end{equation*}
-
 where $expected_{i}$ is the correct answer for example $i$ and $actual_{i}$ is the actual output of the network for example $i$.
 
 Data was collected from 100 runs. Each run was terminated once a network was found that solved
-XOR or the number of networks evaluated exceeded 20 000. Any output above $0.5$ was considered a $1$ and below a $0$.
-The parameters used can be found in appendix \ref{parameter_values}.
+XOR or the number of network evaluations exceeded 20 000. The parameters used can be found in appendix \ref{parameter_values}.
+
+\begin{table}[H]
+    \centering
+    \sisetup{table-format = 3.2}
+    \begin{tabular}{lSS}
+    \toprule
+    Statistic & \multicolumn{1}{l}{Implementation} & \multicolumn{1}{l}{Original} \\
+    \midrule
+    \rowcolor[gray]{.9} Mean evaluations & 4046 & 4755\\
+    Standard deviation & 2316 & 2553\\
+    \rowcolor[gray]{.9} Mean hidden nodes & 3.03 & 2.35\\
+    Standard deviation & 1.49 & 1.11\\
+    \rowcolor[gray]{.9} Mean links & 12.73 & 7.48\\
+    Standard deviation & 3.78 & NaN\\
+    Failures & 0 & 0\\
+    Worst performance (evaluations) & 14355 & 13459 \\
+    Minimal structures found & 14 & 19\\
+    \bottomrule
+    \end{tabular}
+    \smallskip
+    \caption{Comparison of performance on XOR with the original NEAT.}
+\end{table}
+
+The results are overall quite consistent. While mine finds solutions in fewer evaluations more consistently (see Figure \ref{evals}),
+the networks are on average larger and fewer minimal structures are found. This might partly be due to that
+I had to use double the link and node mutation rates used in the original XOR experiment
+to achieve satisfactory performance. Otherwise, the parameters used were identical.
+
+\todo{Add figure with: truth vals of XOR, plot of XOR and minimal network able to solve XOR (show weights!)}
 
 \begin{figure}
-    \begin{center}
-        \input{scripts/xor_evals.pgf}
-    \end{center}
-    \caption{A PGF histogram from \texttt{matplotlib}.}
+    \centering
+    \input{resources/results/xor_evals.pgf}
+    \caption{The number of evaluated networks until XOR was solved over 100 runs.}
+    \label{evals}
 \end{figure}
-
-My results are consistent with the ones reported in \cite{neat_main}. The main difference
-is that, while mine finds solutions in fewer evaluations, the networks are on average larger and
-fewer minimal networks are found. The standard deviations are also slightly larger, indicating that
-my implementation creates networks of .
-
-
-\printinunitsof{in}\prntlen{\textwidth}
-
-
-sasdf
-\todo{Add figure with: truth vals of XOR, plot of XOR and minimal network able to solve XOR (show weights!)}
-\todo{Add histogram plot}

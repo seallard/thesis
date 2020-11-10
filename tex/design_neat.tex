@@ -1,13 +1,16 @@
 \newpage
 
-\section{Design and Implementation of NEAT}
+\section{Design and implementation of NEAT}
 
 \subsection{Overview}
 
 \subsection{Verification of functionality}
-XOR is not linearly separable which imposes some requirements on the ANN structures able to solve it (see figure).
-As such, it is a suitable problem to use as a sanity check. Another advantage is that it provides a direct way to compare my
-implementation with the original one, since they published their results for XOR \cite{neat_main}.
+XOR is not linearly separable, which imposes some requirements on the ANN structures that can solve it.
+This makes XOR a suitable problem for verifying that the implementation is somewhat correct and can evolve the
+the required structure - a sanity check. Another advantage is that it provides a direct way to compare my
+implementation of NEAT with the original one, since the XOR results for it were published \cite{neat_main}.
+
+%\input{resources/tex/xor/separable.tex}
 
 Each network was evaluated with the four XOR input examples and assigned a fitness according to the following expression
 \begin{equation*} \label{eq:1}
@@ -33,23 +36,23 @@ XOR or the number of network evaluations exceeded 20 000. The parameters used ca
     Standard deviation & 3.78 & NaN\\
     Failures & 0 & 0\\
     Worst performance (evaluations) & 14355 & 13459 \\
-    Minimal structures found & 14 & 19\\
+    Minimal structures found & 14 & 22\\
     \bottomrule
     \end{tabular}
     \smallskip
     \caption{Comparison of performance on XOR with the original NEAT.}
 \end{table}
-
-The results are overall quite consistent. While mine finds solutions in fewer evaluations more consistently (see Figure \ref{evals}),
-the networks are on average larger and fewer minimal structures are found. This might partly be due to that
-I had to use double the link and node mutation rates used in the original XOR experiment
-to achieve satisfactory performance. Otherwise, the parameters used were identical.
+\vspace{-1.5em}
+The results are overall similar. While my implementation finds solutions in fewer
+evaluations more consistently (see Figure \ref{evals}), the networks are on average larger
+and fewer minimal structures are found. Besides the link and node mutation rates, the
+parameters used were identical.
 
 \todo{Add figure with: truth vals of XOR, plot of XOR and minimal network able to solve XOR (show weights!)}
 
 \begin{figure}
     \centering
     \input{resources/results/xor_evals.pgf}
-    \caption{The number of evaluated networks until XOR was solved over 100 runs.}
+    \caption{Histogram of the number of evaluated networks before XOR was solved over 100 runs. The width of each bin is 1000.}
     \label{evals}
 \end{figure}

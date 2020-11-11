@@ -5,16 +5,22 @@
 
 \label{sec:intro}
 
-Evolutionary computation techniques to solve problems. Population of candidate solutions. Better are allowed to reproduce
-and replace the previous population. Requires way of scoring the individual candidate solutions. Problem! Imagine we are
-trying to evolve a controller for a robot with the goal of making it walk a long distance. One intuitive way of scoring the
-candidate solutions would be based on the distance they travelled. That would enable solutions which made the robot travel
-further to reproduce to a larger extent. But the fitness function can be deceptive. We might instead end up with robots which
-uncontrollably lunges forwards in order to maximise the distance travelled. This is referred to deceptiveness and is common in more
-complex problems. While the final goal is to evolve a robot which can locomote... The fitness landscape can be deceptive.
-The stepping stones do not necessarily resemble the the final objective.
+Optimisation algorithms commonly use objective functions to guide the search for an optimal solution.
+But some problems and objective functions are deceptive, causing the algorithm to become stuck at
+locally optimal solutions. For example, consider the problem of optimising a controller for a bipedal
+robot. One intuitive objective function could be based on the distance the robot is able to travel. That
+would mean controllers which increase the distance the robot is able to travel are favored. However,
+this objective function might cause the algorithm to converge on unstable controllers which
+propels the robot forwards without control. The solutions along the path to the optimal solution do not
+necessarily reseemble it. To be able to walk a long distance, it might be necessary to find solutions for
+falling and crawling. The optimal solution is not always reachable by following the gradient of the
+objective function.
 
-In this thesis I apply a neuroevolution algorithm to bipedal walking and compare its performance for two different fitness functions.
+There exists many different techniques for avoiding local optima. One approach called novelty search
+completely discards the notion of an objective function. Instead, solutions are scored based on how novel
+they are in comparison to previously found solutions.
+
+In this thesis I investigate whether alternating between novelty and fitness on various deceptive tasks provides...
 
 \todo{}
 
@@ -25,6 +31,6 @@ fitness based search alone on various tasks \cite{ns_study}. For example, novelt
 Another combination, called Minimal  uses the fitness scores to cull the population and...
 
 Novelty search ensures the behaviour space is explored more uniformly whereas fitness exploits the discovered behaviours
-by gradually improving them. This idea forms the basis of a type of evolutionary algorithms called quality diversity optimisation, which
-generates repertoires of optimised diverse solutions.
+by gradually improving them. This idea forms the basis of a type of evolutionary algorithm called quality diversity optimisation,
+which generate repertoires of optimised diverse solutions.
 

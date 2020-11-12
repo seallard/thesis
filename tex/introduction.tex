@@ -5,22 +5,23 @@
 
 \label{sec:intro}
 
-Optimisation algorithms commonly use objective functions to guide the search for an optimal solution.
-But some problems and objective functions are deceptive, causing the algorithm to become stuck at
+Optimisation algorithms use objective functions to guide the search for optimal solutions.
+But some problems and objective functions are deceptive, causing the algorithms to become stuck at
 locally optimal solutions. For example, consider the problem of optimising a controller for a bipedal
-robot. One intuitive objective function could be based on the distance the robot is able to travel. That
-would mean controllers which increase the distance the robot is able to travel are favored. However,
-this objective function might cause the algorithm to converge on unstable controllers which
-propels the robot forwards without control. The solutions along the path to the optimal solution do not
-necessarily reseemble it. To be able to walk a long distance, it might be necessary to find solutions for
-falling and crawling. The optimal solution is not always reachable by following the gradient of the
-objective function.
+robot. Intuitively, One intuitive objective function could be based on the distance the robot is able to travel.
+That would mean controllers which increase the distance the robot is able to travel are favoured.
+However, this objective function might cause the algorithm to converge on unstable controllers which
+propels the robot forwards without control. The solutions along the path to the optimal solution
+do not necessarily resemble it. To be able to walk a long distance, it might be necessary to find
+solutions for falling and crawling. The optimal solution is not always reachable by following the
+gradient of the objective function.
 
-There exists many different techniques for avoiding local optima. One approach called novelty search
-completely discards the notion of an objective function. Instead, solutions are scored based on how novel
+Many different techniques exists for avoiding and getting out of local optima. One such approach, called
+novelty search, discards the notion of an objective. Instead, solutions are scored based on how novel
 they are in comparison to previously found solutions.
 
-In this thesis I investigate whether alternating between novelty and fitness on various deceptive tasks provides...
+In this thesis I investigate whether alternating between novelty and objective search provides
+any benefits when solving a bipedal walking task.
 
 \todo{}
 

@@ -1,8 +1,5 @@
 \section{Introduction}
 
-\todo{https://www.cs.cmu.edu/~jrs/sins.html}
-
-
 \label{sec:intro}
 
 Optimisation algorithms use objective functions to guide the search for optimal solutions.
@@ -30,11 +27,13 @@ which are optimised using a genetic algorithm.
 
 
 \subsection{Related work}
-Several different techniques for combining novelty and fitness exists that perform better than novelty or
-fitness based search alone on various tasks \cite{ns_study}. For example, novelty can be combined with fitness using a weighted sum \cite{}.
-Another combination, called Minimal  uses the fitness scores to cull the population and...
+Several combinations exists that perform better than novelty or objective based search alone
+on various tasks \cite{ns_study}. For example, novelty
+can be combined with fitness using a weighted sum. Other combinations disregard solutions
+below some threshold objective value,
+
 
 Novelty search ensures the behaviour space is explored more uniformly whereas fitness exploits the discovered behaviours
-by gradually improving them. This idea forms the basis of a type of evolutionary algorithm called quality diversity optimisation,
+by gradually improving them. This idea forms the basis of quality diversity optimisation,
 which generate repertoires of optimised diverse solutions.
 

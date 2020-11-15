@@ -4,12 +4,13 @@
 Neuroevolution uses evolutionary algorithms to optimise ANNs \cite{neuroevolution_review}.
 One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of ANNs
 \cite{neat_main, neat_short, neat_phd}.
-NEAT adressed some previous problems in neuroevolution and illustrated how the structure of ANNs could be
+NEAT addressed some previous problems in neuroevolution and illustrated how the structure of ANNs could be
 evolved in order to increase the learning speed. A more recent version of NEAT has been developed which can evolve ANNs of larger scale and
 complexity more efficiently \cite{hyper_neat}.
 
-NEAT uses a direct encoding; genomes contain connection- and node genes which specify the network (see Figure \ref{mapping}). Each connection gene is identified
-by a number and references the two node genes it spans. The node gene is also identified by a number.
+NEAT uses a direct encoding; genomes contain connection- and node genes which specify the corresponding
+network (see Figure \ref{mapping}). Each connection gene is identified by a number and
+references the two node genes it spans. The node gene is also identified by a number.
 
 \input{resources/tex/genotype_phenotype.tex}
 

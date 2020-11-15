@@ -1,20 +1,18 @@
 \subsection{Genetic algorithms}
-\todo{Explain settings which you probably will talk about in discussion}
-\newline
-\todo{Explain encodings, genotypes, phenotypes and operators: selection, mutation and crossover}
-\newline
-Genetic algorithms (GAs) are search algorithms based on evolution. The implementation of GAs vary, but
-generally follow the pattern outlined in Algorithm 1 below. Starting from a random population of individuals
-representing solutions to the problem . Each individual represents a solution to the problem being
-studied. A fitness function scores how well each individual solves the problem. Variation is introduced
-in the population by letting individuals reproduce with each other, usually in proportion to their fitness
-scores. Offspring is created by applying by a crossover operator which combine parts of the parent solutions,
-much like the crossover between chromosomes during sexual reproduction in nature. A second source of variation
-is applied in the form of mutations, each gene is randomly altered with some probability.
+
+Genetic algorithms are optimisation algorithms based on evolution. The fundamental idea is that
+of repeated selection of solutions which are better according to some metric from a population (see Algorithm \ref{algorithm}).
+Variation is introduced in the population by applying mutation- and crossover operators to the
+selected solutions. The mutation operators slightly change the solutions whereas the crossover
+operator is used to form offspring.
+
+Each solution is represented by a genotype, also referred to as a genome or chromosome.
+The mutation and crossover operators are applied to the genotype. During the evaluation, the
+genotype is translated to its corresponding phenotype - the actual solution which can be evaluated.
 
 
 \begin{algorithm}[H]
-    \caption{Generic genetic algorithm}
+    \caption{Generic evolutionary algorithm}
     \begin{algorithmic}
 
 \Procedure{GA}{}
@@ -27,6 +25,5 @@ is applied in the form of mutations, each gene is randomly altered with some pro
 \EndProcedure
 
 \end{algorithmic}
+\label{algorithm}
 \end{algorithm}
-
-\todo{Add illustration of GAs}

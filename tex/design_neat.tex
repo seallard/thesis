@@ -3,6 +3,12 @@
 \section{Design and implementation of NEAT}
 
 \subsection{Overview}
+I implemented NEAT in Python based on the original C++ version, with some slight modifications.
+Fitness sharing was used according to the following formula
+\begin{equation*} \label{eq:1}
+    Offspring = \frac{Average\:species\:fitness}{Total\:average\:species\:fitness} \cdot Population\:size
+\end{equation*}
+The compatibility threshold was adjusted during run-time as to maintain a set target number of species.
 
 \subsection{Verification of functionality}
 XOR is not linearly separable, which imposes some requirements on the ANN structures that can solve it (see Figure \ref{xor}).
@@ -27,13 +33,14 @@ implementation of NEAT with the original one, since the XOR results for it were 
     \end{subfigure}
     \end{mdframed}
     \caption{(a) Truth table for XOR. (b) XOR is not linearly separable.
-    (c) Example of a minimal network structure capable of solving XOR.}
+    (c) Example of a minimal network structure capable of solving XOR. The inputs must be combined at a hidden node
+    and the output node, the network calculates OR-AND.}
     \label{xor}
 \end{figure}
 
 
-Each network was evaluated with the four XOR input examples and assigned a fitness according to the following expression
-\begin{equation*} \label{eq:1}
+Each network was evaluated with the four XOR input examples and assigned a fitness score according to the following expression
+\begin{equation*} \label{eq:2}
     (4 - \sum_{i=1}^{4} expected_{i} - actual_{i})^2
 \end{equation*}
 where $expected_{i}$ is the correct answer for example $i$ and $actual_{i}$ is the actual output of the network for example $i$.
@@ -60,7 +67,7 @@ XOR or the number of network evaluations exceeded 20 000. The parameters used ca
     \bottomrule
     \end{tabular}
     \smallskip
-    \caption{Comparison of performance on XOR with the original NEAT.}
+    \caption{Comparison of performance on XOR with the original NEAT. A population size of 150 networks was used.}
     \label{xor_verification}
 \end{table}
 \vspace{-1.5em}

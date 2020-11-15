@@ -1,5 +1,3 @@
-\newpage
-
 \section{Design and implementation of NEAT}
 
 \subsection{Overview}
@@ -9,6 +7,8 @@ Fitness sharing was used according to the following formula
     Offspring = \frac{Average\:species\:fitness}{Total\:average\:species\:fitness} \cdot Population\:size
 \end{equation*}
 The compatibility threshold was adjusted during run-time as to maintain a set target number of species.
+Population level stagnation detection, which replaces the entire population with offspring from the two best species
+if no improvement is made over some threshold number of generations, was not implemented.
 
 \subsection{Verification of functionality}
 XOR is not linearly separable, which imposes some requirements on the ANN structures that can solve it (see Figure \ref{xor}).

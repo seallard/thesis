@@ -7,8 +7,6 @@ Fitness sharing was used according to the following formula
     Offspring = \frac{Average\:species\:fitness}{Total\:average\:species\:fitness} \cdot Population\:size
 \end{equation*}
 The compatibility threshold was adjusted during run-time as to maintain a set target number of species.
-Population level stagnation detection, which replaces the entire population with offspring from the two best species
-if no improvement is made over some threshold number of generations, was not implemented.
 
 \subsection{Verification of functionality}
 XOR is not linearly separable, which imposes some requirements on the ANN structures that can solve it (see Figure \ref{xor}).
@@ -34,7 +32,7 @@ implementation of NEAT with the original one, since the XOR results for it were 
     \end{mdframed}
     \caption{(a) Truth table for XOR. (b) XOR is not linearly separable.
     (c) Example of a minimal network structure capable of solving XOR. The inputs must be combined at a hidden node
-    and the output node, the network calculates OR-AND.}
+    and the output node.}
     \label{xor}
 \end{figure}
 

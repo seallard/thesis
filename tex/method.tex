@@ -2,18 +2,45 @@
 Most research on variations of novelty search has been done in the domain of maze solving. Mazes are useful
 since they allow for the construction of tasks of varying deceptiveness. If the objective function is
 based on the distance to the end of the maze, simply following its gradient might trap the agent in
-dead-ends. These mazes can be seen as abstractions for real problems in which the objective
+dead-ends. The maze can be seen as an abstraction for a real problem in which the fitness
 landscape is deceptive.
 
 \subsection{Maze navigation task}
-In the maze navigation tasks, a simulated robot must navigate a maze from a starting point to an end-point.
-The robot is controlled by a neural network which, given the readings from the rangefinder and radar
-sensors, outputs two forces which adjust its linear and angular velocity. The 
+In maze navigation, a simulated robot must navigate a maze from a starting point to an end-point
+within a limited number of time steps.
+The robot is controlled by a neural network which, given the readings from the robots sensors, outputs two forces adjusting the robots linear and angular velocity. The
+six rangefinder sensors measure the distance to walls. If a wall occurs within the sensors
+direction and maximum range, the distance is returned. The four radar sensors return binary
+values indicating whether the end-point is directly reachable within their field of view.
 
-Describe the maze agent, inputs, outputs, when the problem is solved, the different mazes.
+%\input{resources/tex/maze/agent.tex}
+\todo{Add robot figure here}
+
+Two mazes are used (see Figure) similar to the ones in \cite{novelty_alone}.
+
+\begin{figure}[H]
+    \captionsetup[subfigure]{justification=centering}
+    \centering
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \hspace*{2em}\scalebox{0.3}{\input{resources/mazes/medium.pgf}}
+            \caption{Medium.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \hspace*{5em}\scalebox{0.3}{\input{resources/mazes/hard.pgf}}
+            \caption{Hard.}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{The robot must navigate from the green point to the red in order to solve the maze.
+             (b) is more deceptive than (a).}
+    \label{mazes}
+\end{figure}
 
 \subsection{Novelty search variants studied}
 Describe the different variants that will be compared.
 
 \subsection{Experimental design}
 Describe how the experiments will be run. What statistics will be collected and why.
+test

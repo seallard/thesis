@@ -1,0 +1,5 @@
+\begin{tikzpicture}
+    \fill[red] (0,0) circle (3mm);
+    \draw (0,0) circle (2cm);
+    \foreach \x in {1,...,20}{\draw[ultra thick,-latex] ({\x*360/20}:2cm) -- ++({\x*360/20}:1cm);}
+\end{tikzpicture}

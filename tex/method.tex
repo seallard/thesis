@@ -6,17 +6,15 @@ dead-ends. The maze can be seen as an abstraction for a real problem in which th
 landscape is deceptive.
 
 \subsection{Maze navigation task}
-In maze navigation, a simulated robot must navigate a maze from a starting point to an end-point
-within a limited number of time steps.
-The robot is controlled by a neural network which, given the readings from the robots sensors, outputs two forces adjusting the robots linear and angular velocity. The
-six rangefinder sensors measure the distance to walls. If a wall occurs within the sensors
-direction and maximum range, the distance is returned. The four radar sensors return binary
+In maze navigation, a simulated robot must navigate through a maze within a number of time steps.
+The robot is controlled by a neural network which, given the readings from the robots sensors,
+outputs two forces adjusting the robots linear and angular velocity.
+
+The robots six rangefinder sensors measure the distance to walls. If a wall occurs within the sensors
+direction and maximum range, the distance is returned.The four radar sensors return binary
 values indicating whether the end-point is directly reachable within their field of view.
 
-%\input{resources/tex/maze/agent.tex}
-\todo{Add robot figure here}
-
-Two mazes are used (see Figure) similar to the ones in \cite{novelty_alone}.
+Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
 
 \begin{figure}[H]
     \captionsetup[subfigure]{justification=centering}

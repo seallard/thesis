@@ -2,7 +2,7 @@
 Most research on variations of novelty search has been done in the domain of maze solving. Mazes are useful
 since they allow for the construction of tasks of varying deceptiveness. If the objective function is
 based on the distance to the end of the maze, simply following its gradient might trap the agent in
-dead-ends. The maze can be seen as an abstraction for a difficult problem in which the fitness
+dead-ends. The maze can be seen as an abstraction for difficult problems in which the fitness
 landscape is deceptive.
 
 \subsection{Maze navigation task}
@@ -43,10 +43,19 @@ The novelty metric is defined as the distance between the robots different end-p
 These metrics have consistently been used in previous studies on novelty search.
 
 \subsection{Proposed combinations}
-I propose a variant, called novelty injection, in which novelty search is used only if stagnation is detected. That is, if no
-solution is found with a higher fitness within some threshold number of generations, the fitness metric is swapped for novelty.
+I propose two combinations of novelty with fitness: novelty injection and novelty dynamic weighted sum (NDWS).
+
+In novelty injection, novelty search is used only if stagnation is detected. That is, if no solution is found with a
+higher fitness within some threshold number of generations, the fitness metric is swapped for novelty for a fixed
+number of generations.
+
+In NDWS, a weighted sum of novelty and fitness is used. The weights are updated during runtime - the novelty
+weight is proportional to the number of generations since a solution of higher fitness was found.
 
 \subsection{Experimental design}
+The aim of both proposed combinations is to reduce the time spent exploring irrelevant parts of the solution space
+compared to existing combinations of novelty and fitness.
+
 Each variant ()
 The two variants are evaluated in 30 runs, each run being terminated once a solution is found
 or the number of evaluations exceeds $70 000$. Two

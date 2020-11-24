@@ -15,6 +15,7 @@ direction and maximum range, the distance is returned.The four radar sensors ret
 values indicating whether the end-point is directly reachable within their field of view.
 
 Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
+Each robot which ends up within 
 
 \begin{figure}[H]
     \captionsetup[subfigure]{justification=centering}
@@ -53,9 +54,7 @@ In NDWS, a weighted sum of novelty and fitness is used. The weights are updated 
 weight is proportional to the number of generations since a solution of higher fitness was found.
 
 \subsection{Experimental design}
-The aim of both proposed combinations is to reduce the time spent exploring irrelevant parts of the solution space
-compared to existing combinations of novelty and fitness.
-
-Each variant is evaluated over $30$ runs, each run being terminated once a solution is found
-or the number of evaluations exceeds $70 000$. The success ratio of each variant is recorded
-(the percentage of runs which found a solution for the different mazes).
+Each variant is evaluated over $30$ runs for each maze, each run lasting for $75 000$ evaluations.
+To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how
+the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum
+of fitness and novelty which have been shown to perform well at the maze task as well \cite{ns_study}.

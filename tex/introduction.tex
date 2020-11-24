@@ -12,8 +12,8 @@ That would mean controllers which increase the distance the robot is able to tra
 However, this objective function might cause the algorithm to converge on unstable controllers which
 propels the robot forwards without control. The solutions along the path to the optimal solution
 do not necessarily resemble it. To be able to walk a long distance, it might be necessary to find
-solutions for falling and crawling. The optimal solution is not always reachable by just
-following the gradient of the objective function.
+solutions for falling and crawling. The optimal solution is not always reachable by following
+the gradient of the objective function.
 
 Many different techniques exists for avoiding and getting out of local optima. One such technique, called
 novelty search, discards the notion of an objective. Instead, solutions are scored based on how novel

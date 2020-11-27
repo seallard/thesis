@@ -2,18 +2,18 @@
 
 \label{sec:intro}
 
-Optimisation algorithms use objective functions to guide the search for optimal solutions.
-But some problems and objective functions are deceptive, causing the algorithm to become stuck at
+Population based optimisation algorithms use fitness functions to guide the search for optimal solutions.
+But some problems and fitness functions are deceptive, causing the algorithms to become stuck at
 locally optimal solutions.
 
 For example, consider the problem of optimising a controller for a bipedal
-robot. Intuitively, one could base the objective function on the distance the robot is able to travel.
+robot. Intuitively, one could base the fitness function on the distance the robot is able to travel.
 That would mean controllers which increase the distance the robot is able to travel are favoured.
-However, this objective function might cause the algorithm to converge on unstable controllers which
+However, this fitness function might cause the algorithm to converge on unstable controllers which
 propels the robot forwards without control. The solutions along the path to the optimal solution
 do not necessarily resemble it. To be able to walk a long distance, it might be necessary to find
 solutions for falling and crawling. The optimal solution is not always reachable by following
-the gradient of the objective function.
+the gradient of the fitness function.
 
 Many different techniques exists for avoiding and getting out of local optima. One such technique, called
 novelty search, discards the notion of an objective. Instead, solutions are scored based on how novel
@@ -21,13 +21,13 @@ they are in comparison to previously found solutions. But when the solution spac
 of novelty search degrades \cite{novelty_not_enough}. By combining novelty with objective search, diversity
 can be maintained while discovered solutions are optimised.
 
-In this thesis I propose a new combination and investigate whether it provides any benefits
-when applied to a maze navigation task. The simulated maze-solving robots are controlled by
+In this thesis I propose two new combinations of novelty and fitness and investigate their performance
+on a maze navigation task. The simulated maze-solving robots are controlled by
 neural networks which are optimised using a genetic algorithm.
 
 \subsection{Related work}
-Several combinations exists that perform better than novelty or objective based search alone
+Several combinations exists that perform better than novelty or fitness based search alone
 on various tasks \cite{ns_study}. For example, novelty can be combined with fitness using a
 weighted sum \cite{novelty_not_enough}. Another class of combinations discards solutions below
-some threshold objective value \cite{minimal_ns}. It is also possible to simultaneously optimise
-the novelty and objective score \cite{multi_ns}.
+some threshold fitness value \cite{minimal_ns}. It is also possible to simultaneously optimise
+the novelty and fitness score \cite{multi_ns}.

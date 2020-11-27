@@ -1,7 +1,7 @@
 \subsection{Artificial neural networks}
 Artificial Neural Networks (ANNs) can be used to approximate functions and are loosely inspired by the structure
 of neurons in biological brains.
-They have been shown to be able to approximate any continuous function with any desired accuracy \cite{universality_formal,universality_informal}.
+They have been shown to be able to approximate any continuous function \cite{universality_formal}.
 A short introduction to ANNs is provided below, see \cite{compint} for more details.
 
 ANNs consist of nodes, also called neurons, connected by directed links (see Figure \ref{feedforward}).
@@ -38,4 +38,5 @@ the network are optimised is referred to as training. For instance, supervised l
 examples to train the network. The input is fed into the network and the output is compared
 to the expected output for the example. The difference is used to update the weights in the network in order to decrease
 the error. After training with a sufficient number of different examples, the network might generalise and provide
-correct outputs for previously unseen examples.
+correct outputs for previously unseen examples. Another type of algorithm for optimising neural networks is described
+in the section below.

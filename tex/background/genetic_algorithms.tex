@@ -4,11 +4,12 @@ Genetic algorithms are optimisation algorithms based on evolution. The fundament
 of repeated selection of solutions which are better according to some metric from a population (see Algorithm \ref{algorithm}).
 Variation is introduced in the population by applying mutation- and crossover operators to the
 selected solutions. The mutation operators slightly change the solutions whereas the crossover
-operator is used to form offspring solutions.
+operator is used to form offspring solutions from the selected solutions.
 
-Each solution is represented by a genotype, also referred to as a genome or chromosome.
-The mutation and crossover operators are applied to the genotype. During the evaluation, the
-genotype is translated to its corresponding phenotype - the actual solution which can be evaluated.
+Each solution is encoded by a genotype, also referred to as a genome. The genome contains
+genes which specify the solution. The crossover and mutation operators are applied to those genes.
+During the evaluation, the genotype is translated to its corresponding phenotype -
+the actual solution which can be evaluated. See \cite{compint} for more details.
 
 
 \begin{algorithm}[H]

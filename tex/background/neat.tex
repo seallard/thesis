@@ -9,7 +9,7 @@ references the two node genes it spans. The node gene is also identified by a nu
 
 \input{resources/tex/genotype_phenotype.tex}
 
-The initial population of genomes consists of structurally identical and fully connected networks without any hidden nodes.
+The initial population of genomes encode structurally identical and fully connected networks without any hidden nodes.
 New structures emerge through structural mutations which can add genes for new connections and nodes to the genomes.
 Nodes are added by splitting an existing connection, which is then disabled and two new connection genes are added along
 with the new node gene (see Figure \ref{node_mutation}).
@@ -23,18 +23,17 @@ node. The first two types of connections can provide a form of short term memory
 
 \input{resources/tex/added_link_mutation.tex}
 
-The ID attribute of the genes, referred to as an innovation number, serves to uniquely identify each mutation that has occured.
-Each time a new link or node is added, a database containing all previous mutations and their IDs is referenced.
-As such, identical mutations are labeled with the same id.
+The ID attribute of the genes, referred to as an innovation number, serves to uniquely identify each mutation that has occurred.
+Each time a new link or node is added, a database containing all previous mutations and their IDs is referenced. That way,
+identical links and nodes are labelled with the same ID.
 
-These innovation numbers are used during speciation and crossover. NEAT divides the population of genomes into species based on their structural
-similarity, which is measured as a compatibility score.
+NEAT protects new structures by placing similar networks in the population into species.
+Competition mainly occurs within the species, ensuring newly created structures are not prematurely deleted.
+Since each gene is labelled with an ID, computing a measure of structural similarity is as simple as
+comparing IDs in the genomes.
 
-Crossover, a type of operator described in (avsnitt om gas), combine the genes of two genomes.
-
-\todo{Mention other mutations}
-\todo{Explain crossover}
-\todo{Explain speciation and fitness sharing}
+The IDs are also used during crossover to create meaningful offspring from networks with different structure.
+They indicate the origin of each gene, making it possible to align homologous genes in the genomes. Genes
+that are not present in both genomes are only inherited from the more fit parent.
 
 \input{resources/tex/overview/overview.tex}
-\todo{Add description}

@@ -10,12 +10,12 @@ In maze navigation, a simulated robot must navigate through a maze within a numb
 The robot is controlled by a neural network which, given the readings from the robots sensors,
 outputs two forces adjusting the robots linear and angular velocity.
 
-The robots six rangefinder sensors measure the distance to walls. If a wall occurs within the sensors
-direction and maximum range, the distance is returned.The four radar sensors return binary
+The robot has six rangefinder sensors which measure the distance to walls. If a wall occurs within the sensors
+direction and maximum range, the distance is returned. It also has four radar sensors which return binary
 values indicating whether the end-point is directly reachable within their field of view.
 
 Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
-Each robot which ends up within 
+Any robot which navigates within 5 units of the end point is classified as having solved the maze.
 
 \begin{figure}[H]
     \captionsetup[subfigure]{justification=centering}
@@ -50,11 +50,11 @@ In novelty injection, novelty search is used only if stagnation is detected. Tha
 higher fitness within some threshold number of generations, the fitness metric is swapped for novelty for a fixed
 number of generations.
 
-In NDWS, a weighted sum of novelty and fitness is used. The weights are updated during runtime - the novelty
+In NDWS, a weighted sum of novelty and fitness is used. The weights are updated during runtime such that the novelty
 weight is proportional to the number of generations since a solution of higher fitness was found.
 
 \subsection{Experimental design}
-Each variant is evaluated over $30$ runs for each maze, each run lasting for $75 000$ evaluations.
+Each variant is evaluated over $30$ runs for each maze, each run lasting for $100 000$ evaluations.
 To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how
 the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum
-of fitness and novelty which have been shown to perform well at the maze task as well \cite{ns_study}.
+of fitness and novelty which has been shown to perform well at the maze task \cite{ns_study}.

@@ -1,12 +1,18 @@
 \subsection{Novelty search}
-\todo{Add motivation for NS, cite papers that explain how and why ambitious problems are deceptive}
-Novelty search can be used with any evolutionary algorithm by replacing the objective
+Novelty search can be used with any evolutionary algorithm by replacing the fitness
 function with a novelty metric. A novelty metric characterises how distant a solution
 is in the behaviour space compared to an archive of discovered solutions. It is a measure
 of sparseness $\rho$ and can be computed at a point $x$ as the average distance of the
-$k$-nearest neighbours
+$k$-nearest neighbours in the archive
 \[
     \rho(x) = \frac{1}{k} \sum_{i=0}^{k} dist(x, n_{i})
 \]
 
 where $n_{i}$ is the $i$th-nearest neighbour of $x$ using some distance metric $dist$.
+
+It might seem like novelty search is an exhaustive search of the solution space. However,
+depending on how the behaviour of the solutions is characterised, many different solutions
+collapse to the same point in the behavioural space. Another advantage of novelty search
+is that it follows the arrow of increasing complexity. Once all of the simple solutions
+have been discovered, the only way to receive a higher score is to evolve a more complex
+behaviour.

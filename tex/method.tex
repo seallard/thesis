@@ -6,7 +6,7 @@ dead-ends. The maze can be seen as an abstraction for difficult problems in whic
 landscape is deceptive.
 
 \subsection{Maze navigation task}
-In maze navigation, a simulated robot must navigate through a maze within a number of time steps.
+In maze navigation, a simulated robot must solve a maze within a limited number of time steps.
 The robot is controlled by a neural network which, given the readings from the robots sensors,
 outputs two forces adjusting the robots linear and angular velocity.
 
@@ -43,15 +43,29 @@ and $d$ is the distance from the robots final position to the maze end-point aft
 The novelty metric is defined as the distance between the robots different end-positions in the maze.
 These metrics have consistently been used in previous studies on novelty search.
 
-\subsection{Proposed combinations}
-I propose two combinations of novelty with fitness: novelty injection and novelty dynamic weighted sum (NDWS).
+\subsection{Combinations}
+The idea behind both of the studied combinations is to use novelty search in order to introduce diversity
+when the search algorithm seems to have converged prematurely on local optima.
 
-In novelty injection, novelty search is used only if stagnation is detected. That is, if no solution is found with a
+\subsubsection{Dynamic novelty linearisation}
+In dynamic novelty linearisation, as proposed in \cite{novelty_not_enough}, a weighted sum of novelty and fitness is used:
+\[
+    score(i) = (1-\rho) \cdot \overline{fitness}(i) + \rho \cdot \overline{novelty}(i)
+\]
+where $\rho \in [0,1]$ and the fitness and novelty score are normalised according to:
+\[
+    \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}}
+\]
+
+
+The weights are updated during runtime such that they are proportional to the number of generations since a solution of
+higher fitness was found.
+
+\subsubsection{Novelty injection}
+In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
 higher fitness within some threshold number of generations, the fitness metric is swapped for novelty for a fixed
-number of generations.
-
-In NDWS, a weighted sum of novelty and fitness is used. The weights are updated during runtime such that the novelty
-weight is proportional to the number of generations since a solution of higher fitness was found.
+number of generations. The idea is that stagnation of the maximum observed fitness might signal
+premature convergence on local optima.
 
 \subsection{Experimental design}
 Each variant is evaluated over $30$ runs for each maze, each run lasting for $100 000$ evaluations.

@@ -8,11 +8,11 @@ $k$-nearest neighbours in the archive
     \rho(x) = \frac{1}{k} \sum_{i=0}^{k} dist(x, n_{i})
 \]
 
-where $n_{i}$ is the $i$th-nearest neighbour of $x$ using some distance metric $dist$.
+where $n_{i}$ is the $i$th-nearest neighbour of $x$ using some distance metric $dist$ \cite{novelty_alone}.
 
 It might seem like novelty search is an exhaustive search of the solution space. However,
 depending on how the behaviour of the solutions is characterised, many different solutions
 collapse to the same point in the behavioural space. Another advantage of novelty search
 is that it follows the arrow of increasing complexity. Once all of the simple solutions
 have been discovered, the only way to receive a higher score is to evolve a more complex
-behaviour.
+behaviour. The main purpose of novelty search is to avoid deception.

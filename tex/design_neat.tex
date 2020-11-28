@@ -1,47 +1,10 @@
 \section{Implementation of NEAT}
 
 I implemented NEAT in Python based on the original C++ version, with some slight modifications.
-Fitness sharing was used according to the following formula
-\begin{equation*} \label{eq:1}
-    Offspring = \frac{Average\:species\:fitness}{Total\:average\:species\:fitness} \cdot Population\:size
-\end{equation*}
-The compatibility threshold was adjusted during run-time as to maintain a set target number of species.
+To avoid interfering with the combinations of novelty and fitness studied, the stagnation check used in the
+original version of NEAT was not used.
 
-\subsection{Verification of functionality}
-XOR is not linearly separable, which imposes some requirements on the ANN structures that can solve it.
-This makes XOR a suitable problem for verifying that the implementation can evolve suitable structures.
-Another advantage is that it provides a direct way to compare my
-implementation of NEAT with the original one, since the XOR results for it were published \cite{neat_main}.
-
-
-%\begin{figure}[h!]
-%    \begin{mdframed}
-%    \begin{subfigure}[t]{0.3\textwidth}
-%        \input{resources/tex/xor/truth_table.tex}
-%        \caption{}
-%    \end{subfigure}
-%    \begin{subfigure}[t]{0.3\textwidth}
-%        \input{resources/tex/xor/separable.tex}
-%        \caption{}
-%    \end{subfigure}
-%    \begin{subfigure}[t]{0.4\textwidth}
-%        \includegraphics[scale=0.3]{resources/tex/xor/xor_weights.png}
-%        \caption{}
-%    \end{subfigure}
-%    \end{mdframed}
-%    \caption{(a) Truth table for XOR. (b) XOR is not linearly separable.
-%    (c) Example of a minimal network structure capable of solving XOR. The inputs must be combined at a hidden node
-%    and at the output node.}
-%    \label{xor}
-%\end{figure}
-
-
-%Each network was evaluated with the four XOR input examples and assigned a fitness score according to the following expression
-%\begin{equation*} \label{eq:2}
-%    (4 - \sum_{i=1}^{4} expected_{i} - actual_{i})^2
-%\end{equation*}
-%where $expected_{i}$ is the correct answer for example $i$ and $actual_{i}$ is the actual output of the network for example $i$.
-
+To verify the functionality of my implementation and compare it to the original one \cite{neat_main}, the performance on XOR was tested.
 Data was collected from 100 runs (see Table \ref{xor_verification}). Each run was terminated once a network was found that solved
 XOR or the number of network evaluations exceeded 20 000. The parameters used can be found in appendix \ref{parameter_values}.
 
@@ -63,11 +26,10 @@ XOR or the number of network evaluations exceeded 20 000. The parameters used ca
     Minimal structures found & 14 & 22\\
     \bottomrule
     \end{tabular}
-    \smallskip
-    \caption{Comparison of performance on XOR with the original NEAT. A population size of 150 networks was used.}
+    \caption{Comparison of the performance on XOR with the original NEAT implementation. A population size of 150 networks was used.}
     \label{xor_verification}
 \end{table}
-\vspace{-1.5em}
+
 The results are overall similar. While my implementation finds solutions in fewer
 evaluations more consistently, the networks are on average larger
 and fewer minimal structures are found.

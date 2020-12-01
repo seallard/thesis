@@ -43,29 +43,30 @@ and $d$ is the distance from the robots final position to the maze end-point aft
 The novelty metric is defined as the distance between the robots different end-positions in the maze.
 These metrics have consistently been used in previous studies on novelty search.
 
-\subsection{Combinations}
+\subsection{Proposed combinations}
 The idea behind both of the studied combinations is to use novelty search in order to introduce diversity
-when the search algorithm seems to have converged prematurely on local optima.
+when the search algorithm prematurely converges on local optima.
 
-\subsubsection{Dynamic novelty linearisation}
-In dynamic novelty linearisation, as proposed in \cite{novelty_not_enough}, a weighted sum of novelty and fitness is used:
+\subsubsection{Dynamic linearisation of novelty and fitness}
+As shown in \cite{novelty_not_enough}, a weighted sum of novelty and fitness can be used to score each solution
 \[
     score(i) = (1-\rho) \cdot \overline{fitness}(i) + \rho \cdot \overline{novelty}(i)
 \]
-where $\rho \in [0,1]$ and the fitness and novelty score are normalised according to:
-\[
-    \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}}
-\]
-
-
-The weights are updated during runtime such that they are proportional to the number of generations since a solution of
-higher fitness was found.
+where $\rho \in [0,1]$ and the fitness and novelty score are normalised according to
+\begin{align*}
+    \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}} && \overline{novelty}(i) =  \frac{novelty(i) - novelty_{min}}{novelty_{max} - novelty_{min}}
+\end{align*}
+The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{novelty_not_enough}, it is suggested
+that the $\rho$ parameter could be updated based on the performance of the search algorithm. I propose the following
+method for updating $\rho$
+\begin{align*}
+    \rho(n) = ...
+\end{align*}
 
 \subsubsection{Novelty injection}
 In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
 higher fitness within some threshold number of generations, the fitness metric is swapped for novelty for a fixed
-number of generations. The idea is that stagnation of the maximum observed fitness might signal
-premature convergence on local optima.
+number of generations.
 
 \subsection{Experimental design}
 Each variant is evaluated over $30$ runs for each maze, each run lasting for $100 000$ evaluations.

@@ -1,5 +1,5 @@
 \section{Method}
-Most research on variations of novelty search has been done in the domain of maze solving. Mazes are useful
+Variations on novelty search are often studied in the domain of maze navigation. Mazes are useful
 since they allow for the construction of tasks of varying deceptiveness. If the objective function is
 based on the distance to the end of the maze, simply following its gradient might trap the agent in
 dead-ends. The maze can be seen as an abstraction for difficult problems in which the fitness
@@ -15,7 +15,9 @@ direction and maximum range, the distance is returned. It also has four radar se
 values indicating whether the end-point is directly reachable within their field of view.
 
 Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
-Any robot which navigates within 5 units of the end point is classified as having solved the maze.
+Any robot which navigates within 5 units of the end point is classified as having solved the maze. The robots
+were given $400$ time steps to solve the maze, a limit which was set as to force the robots to navigate the maze
+
 
 \begin{figure}[H]
     \captionsetup[subfigure]{justification=centering}
@@ -40,8 +42,8 @@ Any robot which navigates within 5 units of the end point is classified as havin
 \subsection{Fitness and novelty metric}
 The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring the fitness stays positive
 and $d$ is the distance from the robots final position to the maze end-point after an evaluation.
-The novelty metric is defined as the distance between the robots different end-positions in the maze.
-These metrics have consistently been used in previous studies on novelty search.
+The novelty metric is defined as the euclidean distance between the robots end-positions in the maze.
+These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
 
 \subsection{Proposed combinations}
 The idea behind both of the studied combinations is to use novelty search in order to introduce diversity
@@ -56,6 +58,7 @@ where $\rho \in [0,1]$ and the fitness and novelty score are normalised accordin
 \begin{align*}
     \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}} && \overline{novelty}(i) =  \frac{novelty(i) - novelty_{min}}{novelty_{max} - novelty_{min}}
 \end{align*}
+\todo{Explain what min and max is used. What is the point of normalising like this?}
 The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{novelty_not_enough}, it is suggested
 that the $\rho$ parameter could be updated based on the performance of the search algorithm. I propose the following
 method for updating $\rho$
@@ -69,7 +72,8 @@ higher fitness within some threshold number of generations, the fitness metric i
 number of generations.
 
 \subsection{Experimental design}
-Each variant is evaluated over $30$ runs for each maze, each run lasting for $100 000$ evaluations.
+Each variant is evaluated over $30$ runs for both mazes, each run being terminated once an ANN
+able to solve the maze is found or $100 000$ evaluations is reached.
 To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how
 the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum
 of fitness and novelty which has been shown to perform well on the maze task \cite{ns_study}.

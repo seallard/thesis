@@ -1,6 +1,9 @@
 \subsection{Novelty search}
 Novelty search can be used with any evolutionary algorithm by replacing the fitness
-function with a novelty metric. A novelty metric characterises how distant a solution
+function with a novelty metric. Each solution is characterised based on some aspect
+of its behaviour. For example, in the domain of maze navigation,
+the behaviour of each ANN can be characterised as the
+final coordinates of the robot in the maze. A novelty metric specifies how distant a solution
 is in the behaviour space compared to an archive of discovered solutions. It is a measure
 of sparseness $\rho$ and can be computed at a point $x$ as the average distance of the
 $k$-nearest neighbours in the archive
@@ -15,4 +18,4 @@ depending on how the behaviour of the solutions is characterised, many different
 collapse to the same point in the behavioural space. Another advantage of novelty search
 is that it follows the arrow of increasing complexity. Once all of the simple solutions
 have been discovered, the only way to receive a higher score is to evolve a more complex
-behaviour. The main purpose of novelty search is to avoid deception.
+behaviour.

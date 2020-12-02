@@ -63,13 +63,28 @@ The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{n
 that the $\rho$ parameter could be updated based on the performance of the search algorithm. I propose the following
 method for updating $\rho$
 \begin{align*}
-    \rho(n) = ...
+    \rho(n) =
+        \begin{cases}
+            0.1 + \frac{n}{n_{max}} \cdot 0.8 & \text{if $n$ < $n_{max}$}\\
+            0.9 & \text{otherwise}
+        \end{cases}
 \end{align*}
+where $n$ is the number of generations since a better solution was found and
+$n_{max}$ is a threshold number of generations at which $\rho$ reaches a maximum
+of $0.9$. For the experiments, $n_{max}=15$ was used.
 
 \subsubsection{Novelty injection}
 In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
-higher fitness within some threshold number of generations, the fitness metric is swapped for novelty for a fixed
+higher fitness within some threshold number of generations $n_{max}$ the fitness metric is swapped for novelty for a fixed
 number of generations.
+\begin{align*}
+    \rho(n) =
+        \begin{cases}
+            0 & \text{if $n$ < $n_{max}$}\\
+            1 & \text{otherwise}
+        \end{cases}
+\end{align*}
+In the experiments, the novelty metric was used for $10$ generations.
 
 \subsection{Experimental design}
 Each variant is evaluated over $30$ runs for both mazes, each run being terminated once an ANN

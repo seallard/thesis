@@ -15,6 +15,8 @@ direction and maximum range, the distance is returned. It also has four radar se
 values indicating whether the end-point is directly reachable within their field of view.
 
 Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
+The first one is easy, only requiring the robot to slightly shift its path to reach the end-point. The second is more
+difficult, with deeper dead-ends.
 Any robot which navigates within 5 units of the end point is classified as having solved the maze. The robots
 were given $400$ time steps to solve the maze, a limit which was set as to force the robots to navigate the maze
 
@@ -40,7 +42,7 @@ were given $400$ time steps to solve the maze, a limit which was set as to force
 \end{figure}
 
 \subsection{Fitness and novelty metric}
-The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring the fitness stays positive
+The fitness function is defined as $f = \frac{b - d}{b}$ where $b$ is a constant ensuring the fitness stays positive
 and $d$ is the distance from the robots final position to the maze end-point after an evaluation.
 The novelty metric is defined as the euclidean distance between the robots end-positions in the maze.
 These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
@@ -65,7 +67,7 @@ method for updating $\rho$
 \begin{align*}
     \rho(n) =
         \begin{cases}
-            0.1 + \frac{n}{n_{max}} \cdot 0.8 & \text{if $n$ < $n_{max}$}\\
+            0.1 + \frac{n}{n_{max}} \cdot 0.8 & \text{if $n \leq n_{max}$}\\
             0.9 & \text{otherwise}
         \end{cases}
 \end{align*}
@@ -80,7 +82,7 @@ number of generations.
 \begin{align*}
     \rho(n) =
         \begin{cases}
-            0 & \text{if $n$ < $n_{max}$}\\
+            0 & \text{if $n \leq n_{max}$}\\
             1 & \text{otherwise}
         \end{cases}
 \end{align*}

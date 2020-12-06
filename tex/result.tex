@@ -5,22 +5,52 @@
 \begin{table}[H]
     \centering
     \sisetup{table-format = 3.2}
-    \begin{tabular}{lllll}
+    \begin{tabular}{llllll}
     \toprule
-    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{DL} \\
+    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
     \midrule
-    Successful runs & 22 &  &  & \\
-    Worst successful run & 85637 &  &  & \\
-    \rowcolor[gray]{.9} Mean evaluations until solved & 33197 &  &  & \\
-    Standard deviation & 24766  &  &  & \\
-    \rowcolor[gray]{.9} Mean hidden nodes of solutions & 12.4 &  &  &  \\
-    Standard deviation & 9.3 &  &  &  \\
-    \rowcolor[gray]{.9} Mean links of solutions & 41.3  &  &  &  \\
-    Standard deviation & 30.1  &  &  & \\
+    Successful runs & 22 & 30 & 30 & 30 & 28 \\
+    Worst successful run & 85637 & 95433 & 97020 & 78634 & 97091 \\
+    \rowcolor[gray]{.9} Mean evaluations until solved & 33197 & 37832 & 25139 & 30684 & 32991 \\
+    Standard deviation & 24766  & 24959 & 24111 & 19863 & 25093 \\
+    \rowcolor[gray]{.9} Mean hidden nodes of solutions & 12.4 & 12.1  & 8.9  & 10.1 & 9.8 \\
+    Standard deviation & 9.3 & 7.1 & 6.8 & 5.9 & 6.4 \\
+    \rowcolor[gray]{.9} Mean links of solutions & 41.3  & 40.5 & 29.0 & 33.8 & 35.1 \\
+    Standard deviation & 30.1  & 24.5 & 23.6 & 20.1 & 21.4\\
     \bottomrule
     \end{tabular}
-    \caption{Results for the medium-difficult maze, data was collected for each variant over 30 runs.}
-    \label{test}
+    \caption{Results for the medium maze, data was collected for each variant over 30 runs.}
+    \label{medium}
 \end{table}
 
+
+\begin{table}[H]
+    \centering
+    \sisetup{table-format = 3.2}
+    \begin{tabular}{llllll}
+    \toprule
+    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} &  \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
+    \midrule
+    Successful runs & 0 &  &  & & \\
+    Worst successful run & NaN &  &  & & \\
+    \rowcolor[gray]{.9} Mean evaluations until solved & NaN &  &  & & \\
+    Standard deviation & NaN  &  &  & \\
+    \rowcolor[gray]{.9} Mean hidden nodes of solutions & NaN &  &  & & \\
+    Standard deviation & NaN &  &  &  \\
+    \rowcolor[gray]{.9} Mean links of solutions & NaN  &  &  &  & \\
+    Standard deviation & NaN  &  &  & & \\
+    \bottomrule
+    \end{tabular}
+    \caption{Results for the hard maze, data was collected for each variant over 30 runs.}
+    \label{hard}
+\end{table}
+
+\begin{figure}
+    \begin{center}
+        \input{resources/results/fitness.pgf}
+    \end{center}
+    \caption{Average fitness over generations on the medium maze (so far only pure fitness tested).}
+\end{figure}
+
+\newpage
 \subsection{Discussion}

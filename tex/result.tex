@@ -9,14 +9,14 @@
     \toprule
     Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
     \midrule
-    Successful runs & 22 & 30 & 30 & 30 & 28 \\
-    Worst successful run & 85637 & 95433 & 97020 & 78634 & 97091 \\
-    \rowcolor[gray]{.9} Mean evaluations until solved & 33197 & 37832 & 25139 & 30684 & 32991 \\
-    Standard deviation & 24766  & 24959 & 24111 & 19863 & 25093 \\
-    \rowcolor[gray]{.9} Mean hidden nodes of solutions & 12.4 & 12.1  & 8.9  & 10.1 & 9.8 \\
-    Standard deviation & 9.3 & 7.1 & 6.8 & 5.9 & 6.4 \\
-    \rowcolor[gray]{.9} Mean links of solutions & 41.3  & 40.5 & 29.0 & 33.8 & 35.1 \\
-    Standard deviation & 30.1  & 24.5 & 23.6 & 20.1 & 21.4\\
+    Successful runs & 28 & 30 & 30 & 30 & 28 \\
+    Worst successful run & 94701 & 95433 & 97020 & 78634 & 97091 \\
+    \rowcolor[gray]{.9} Mean evaluations until solved & 48465 & 37832 & 25139 & 30684 & 32991 \\
+    Standard deviation & 27920  & 24959 & 24111 & 19863 & 25093 \\
+    \rowcolor[gray]{.9} Mean hidden nodes of solutions & 16.4 & 12.1  & 8.9  & 10.1 & 9.8 \\
+    Standard deviation & 9.9 & 7.1 & 6.8 & 5.9 & 6.4 \\
+    \rowcolor[gray]{.9} Mean links of solutions & 54.7  & 40.5 & 29.0 & 33.8 & 35.1 \\
+    Standard deviation & 31.6  & 24.5 & 23.6 & 20.1 & 21.4\\
     \bottomrule
     \end{tabular}
     \caption{Results for the medium maze, data was collected for each variant over 30 runs.}
@@ -24,33 +24,40 @@
 \end{table}
 
 
-\begin{table}[H]
-    \centering
-    \sisetup{table-format = 3.2}
-    \begin{tabular}{llllll}
-    \toprule
-    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} &  \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
-    \midrule
-    Successful runs & 0 &  &  & & \\
-    Worst successful run & NaN &  &  & & \\
-    \rowcolor[gray]{.9} Mean evaluations until solved & NaN &  &  & & \\
-    Standard deviation & NaN  &  &  & \\
-    \rowcolor[gray]{.9} Mean hidden nodes of solutions & NaN &  &  & & \\
-    Standard deviation & NaN &  &  &  \\
-    \rowcolor[gray]{.9} Mean links of solutions & NaN  &  &  &  & \\
-    Standard deviation & NaN  &  &  & & \\
-    \bottomrule
-    \end{tabular}
-    \caption{Results for the hard maze, data was collected for each variant over 30 runs.}
-    \label{hard}
-\end{table}
+%\begin{table}[H]
+%    \centering
+%    \sisetup{table-format = 3.2}
+%    \begin{tabular}{llllll}
+%    \toprule
+%    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} &  \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
+%    \midrule
+%    Successful runs & 0 &  &  & & \\
+%    Worst successful run & NaN &  &  & & \\
+%    \rowcolor[gray]{.9} Mean evaluations until solved & NaN &  &  & & \\
+%    Standard deviation & NaN  &  &  & \\
+%    \rowcolor[gray]{.9} Mean hidden nodes of solutions & NaN &  &  & & \\
+%    Standard deviation & NaN &  &  &  \\
+%    \rowcolor[gray]{.9} Mean links of solutions & NaN  &  &  &  & \\
+%    Standard deviation & NaN  &  &  & & \\
+%    \bottomrule
+%    \end{tabular}
+%    \caption{Results for the hard maze, data was collected for each variant over 30 runs.}
+%    \label{hard}
+%\end{table}
 
-\begin{figure}
+\begin{figure}[H]
     \begin{center}
         \input{resources/results/fitness.pgf}
     \end{center}
-    \caption{Average fitness over generations on the medium maze (so far only pure fitness tested).}
+    \caption{Average fitness of each generation over 30 runs on the medium maze for each variant.
+             Each run was padded to 500 generations with the fitness of the discovered solution.}
 \end{figure}
 
 \newpage
 \subsection{Discussion}
+All of the studied variants were able to solve the medium-difficult maze in most of the runs.
+As expected, the novelty search variants solve the medium maze in fewer evaluations on average
+compared to the pure fitness metric. However, LS-50 and injection were the only variants for which
+the difference was significant at the $0.01$ level ($p=0.0012$ and $p=0.0068$). The mean number of
+links and nodes in the solution networks for LS-50 and injection were also lower
+compared to the pure fitness metric with significance at the $0.01$ level.

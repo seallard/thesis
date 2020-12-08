@@ -16,9 +16,11 @@ values indicating whether the end-point is directly reachable within their field
 
 Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
 The first one is easy, only requiring the robot to slightly shift its path to reach the end-point. The second is more
-difficult, with deeper dead-ends.
+difficult, with deeper dead-ends that require the robots to explore parts of the maze of much lower fitness.
+
 Any robot which navigates within 5 units of the end point is classified as having solved the maze. The robots
-were given $400$ time steps to solve the maze, a limit which was set as to force the robots to navigate the maze
+were given $400$ time steps to solve the maze, a limit which was set as to force them to navigate the maze
+in a direct manner.
 
 
 \begin{figure}[H]
@@ -42,8 +44,9 @@ were given $400$ time steps to solve the maze, a limit which was set as to force
 \end{figure}
 
 \subsection{Fitness and novelty metric}
-The fitness function is defined as $f = \frac{b - d}{b}$ where $b$ is a constant ensuring the fitness stays positive
-and $d$ is the distance from the robots final position to the maze end-point after an evaluation.
+The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring the fitness stays positive
+and $d$ is the euclidean distance from the robots final position to the maze end-point after an evaluation.
+The constant $b$ was set to the length of the diagonal of the mazes.
 The novelty metric is defined as the euclidean distance between the robots end-positions in the maze.
 These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
 
@@ -60,7 +63,7 @@ where $\rho \in [0,1]$ and the fitness and novelty score are normalised accordin
 \begin{align*}
     \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}} && \overline{novelty}(i) =  \frac{novelty(i) - novelty_{min}}{novelty_{max} - novelty_{min}}
 \end{align*}
-\todo{Explain what min and max is used. What is the point of normalising like this?}
+where the maximum and minimum are the extreme values observed in the current population for each respective metric.
 The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{novelty_not_enough}, it is suggested
 that the $\rho$ parameter could be updated based on the performance of the search algorithm. I propose the following
 method for updating $\rho$
@@ -86,7 +89,7 @@ number of generations.
             1 & \text{otherwise}
         \end{cases}
 \end{align*}
-In the experiments, the novelty metric was used for $10$ generations.
+In the experiments, the novelty metric was used for $15$ generations.
 
 \subsection{Experimental design}
 Each variant is evaluated over $30$ runs for both mazes, each run being terminated once an ANN

@@ -1,10 +1,14 @@
 \subsection{Genetic algorithms}
-\todo{Describe what type of problems that have been solved successfully with GA:s.}
-Genetic algorithms are optimisation algorithms based on evolution. The fundamental idea is that
-of repeated selection of solutions which are better according to some metric from a population (see Algorithm \ref{algorithm}).
+Genetic algorithms are optimisation algorithms based on evolution. They have been successfully
+applied to problems in a wide array of domains, such as structural engineering \cite{engineering_gas}
+and drug development \cite{drug_gas}. Evolutionary algorithms have also been shown to be able to match
+the performance of gradient-based algorithms on some reinforcement learning benchmark problems \cite{es_reinforce}.
+
+The fundamental idea is that of repeated selection of solutions which are better according to
+some metric from a population (see Algorithm \ref{algorithm}).
 Variation is introduced in the population by applying mutation- and crossover operators to the
 selected solutions. The mutation operators slightly change the solutions whereas the crossover
-operator is used to form offspring solutions from the selected solutions.
+operator is used to create new solutions by combining existing ones.
 
 Each solution is encoded by a genotype, also referred to as a genome. The genome contains
 genes which specify the solution. The crossover and mutation operators are applied to those genes.

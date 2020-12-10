@@ -79,10 +79,11 @@ See Figure \ref{medium_fitness} for the average fitness over all generations for
 \end{figure}
 
 \subsection{Hard maze}
-None of the variants were able to solve the hard maze within the $400$ given time steps.
+None of the variants were able to solve the hard maze within the $400$ time steps and $500$ generations.
 The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to the
 robots entering the first dead-end. However, all of the novelty search variants except LS-50
 were able to quickly escape it, as indicated by the subsequent sharp drop in fitness.
+See Figure \ref{distribution} for scatter plots of all the final positions of the robots.
 
 \begin{figure}[H]
     \begin{center}
@@ -90,6 +91,33 @@ were able to quickly escape it, as indicated by the subsequent sharp drop in fit
     \end{center}
     \caption{Average fitness of each generation over 30 runs on the hard maze for each variant.}
     \label{hard_fitness}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/pure_fitness_hard_all.png}
+            \caption{Fitness.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/pure_novelty_hard_all.png}
+            \caption{Novelty.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/fitness_novelty_hard_all.png}
+            \caption{LS-50.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/dynamic_hard_all.png}
+            \caption{Dynamic linearisation.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/novelty_injection_hard_all.png}
+            \caption{Novelty injection.}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{The distribution of all end-positions for each variant in the hard maze.}
+    \label{distribution}
 \end{figure}
 
 \newpage
@@ -102,7 +130,5 @@ links and nodes in the solution networks for LS-50 and injection were also lower
 compared to the pure fitness metric with significance at the $0.01$ level.
 
 None of the variants were able to solve the hard maze in the number of allotted time steps.
-However, some of the variants found controllers which navigated through large parts of the
-maze. If the experiments had been run with a slightly larger number
-The fitness based search quickly converges on controllers which stack up in the first
-dead-end and never escapes it.
+Judging from the distribution of end-points in Figure \ref{distribution}, none of the variants
+were better than pure novelty search in the hard maze.

@@ -15,7 +15,8 @@ do not necessarily resemble it. To be able to walk a long distance, it might be 
 solutions for falling and crawling. The optimal solution is not always reachable by following
 the gradient of the fitness function.
 
-Many different techniques exists for avoiding and getting out of local optima. One such technique, called
+Many different techniques exists for avoiding and getting out of local optima. One such technique used
+in evolutionary robotics, called
 novelty search, discards the notion of an objective. Instead, solutions are scored based on how different
 they are in comparison to previously found solutions. But when the behaviour space becomes large, the performance
 of novelty search degrades \cite{novelty_not_enough}. By combining novelty with objective search, diversity
@@ -25,7 +26,7 @@ In this thesis I compare two combinations of novelty and fitness and their perfo
 on a maze navigation task. The first combination, proposed in \cite{novelty_not_enough}, uses a weighted
 sum of novelty and fitness in which the weight is updated based on the performance of the search.
 The second combination simply alternates between fitness and novelty depending on the performance
-of the search. The simulated maze-solving robots are controlled by neural networks which are
+of the search. The simulated maze-navigating robots are controlled by neural networks which are
 optimised using a genetic algorithm.
 
 \subsection{Related work}

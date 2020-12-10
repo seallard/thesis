@@ -1,16 +1,44 @@
 \section{Result}
 \label{sec:Result}
 
-\subsection{Data}
+See table \ref{abbreviations} for an explanation of each novelty search variants abbreviated name.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{llll}
+    \toprule
+    \multicolumn{1}{l}{Abbreviation} & \multicolumn{1}{l}{Name} & \multicolumn{1}{l}{$\rho$} & See section\\
+    \midrule
+    F & Fitness & $\rho = 0$ & \ref{subsection:metrics}. \\
+    NS & Novelty search & $\rho = 1$ & \ref{subsection:metrics}. \\
+    LS-50 & Linearisation 50-50 & $\rho = 0.5$ & \ref{subsection:design}. \\
+    DL & Dynamic linearisation & $\rho(n) = \begin{cases} 0.1 + \frac{n}{n_{max}} \cdot 0.8 & \text{if $n \leq n_{max}$}\\ 0.9 & \text{otherwise} \end{cases}$
+    & \ref{subsubsection:dynamic_linearisation}. \\
+    NI & Novelty injection & $\rho(n) = \begin{cases} 0 & \text{if $n \leq n_{max}$}\\ 1 & \text{otherwise} \end{cases}$
+    & \ref{subsection:injection}. \\
+    \bottomrule
+    \end{tabular}
+    \caption{Abbreviations for the different variants of novelty search studied with references to corresponding sections.}
+    \label{abbreviations}
+\end{table}
+
+
+\subsection{Medium maze}
+
+All of the variants studied were able to solve the medium maze in most of the runs. See
+Figure \ref{typical_runs} for a visualisation of two typical runs.
+Statistics for respective variant on the medium maze is reported in table \ref{medium}.
+See Figure \ref{medium_fitness} for the average fitness over all generations for each variant.
+
 \begin{table}[H]
     \centering
     \sisetup{table-format = 3.2}
     \begin{tabular}{llllll}
     \toprule
-    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
+    Statistic & \multicolumn{1}{l}{F} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
     \midrule
     Successful runs & 28 & 30 & 30 & 30 & 28 \\
-    Worst successful run & 94701 & 95433 & 97020 & 78634 & 97091 \\
+    Worst run (evaluations) & 94701 & 95433 & 97020 & 78634 & 97091 \\
     \rowcolor[gray]{.9} Mean evaluations until solved & 48465 & 37832 & 25139 & 30684 & 32991 \\
     Standard deviation & 27920  & 24959 & 24111 & 19863 & 25093 \\
     \rowcolor[gray]{.9} Mean hidden nodes of solutions & 16.4 & 12.1  & 8.9  & 10.1 & 9.8 \\
@@ -23,34 +51,45 @@
     \label{medium}
 \end{table}
 
-
-%\begin{table}[H]
-%    \centering
-%    \sisetup{table-format = 3.2}
-%    \begin{tabular}{llllll}
-%    \toprule
-%    Statistic & \multicolumn{1}{l}{Fit} & \multicolumn{1}{l}{NS} & \multicolumn{1}{l}{LS-50} &  \multicolumn{1}{l}{NI} & \multicolumn{1}{l}{DL} \\
-%    \midrule
-%    Successful runs & 0 &  &  & & \\
-%    Worst successful run & NaN &  &  & & \\
-%    \rowcolor[gray]{.9} Mean evaluations until solved & NaN &  &  & & \\
-%    Standard deviation & NaN  &  &  & \\
-%    \rowcolor[gray]{.9} Mean hidden nodes of solutions & NaN &  &  & & \\
-%    Standard deviation & NaN &  &  &  \\
-%    \rowcolor[gray]{.9} Mean links of solutions & NaN  &  &  &  & \\
-%    Standard deviation & NaN  &  &  & & \\
-%    \bottomrule
-%    \end{tabular}
-%    \caption{Results for the hard maze, data was collected for each variant over 30 runs.}
-%    \label{hard}
-%\end{table}
-
 \begin{figure}[H]
     \begin{center}
         \input{resources/results/fitness.pgf}
     \end{center}
-    \caption{Average fitness of each generation over 30 runs on the medium maze for each variant.
-             Each run was padded to 500 generations with the fitness of the discovered solution.}
+    \caption{Average fitness of each generation over 30 runs on the medium maze for each variant.}
+    \label{medium_fitness}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \includegraphics[scale=0.1]{resources/mazes/fitness_medium.png}
+            \caption{Fitness only.}
+            \label{fitness_only}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.1]{resources/mazes/novelty_medium.png}
+            \caption{Novelty only.}
+            \label{novelty_only}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{Two representative runs for fitness and novelty on the medium maze. (a) found a solution after 57811 simulations
+    and (b) found a solution after 18922 simulations. Each point represents the final location
+    of a robot after a simulation.}
+    \label{typical_runs}
+\end{figure}
+
+\subsection{Hard maze}
+None of the variants were able to solve the hard maze within the $400$ given time steps.
+The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to the
+robots entering the first dead-end. However, all of the novelty search variants except LS-50
+were able to quickly escape it, as indicated by the subsequent sharp drop in fitness.
+
+\begin{figure}[H]
+    \begin{center}
+        \input{resources/results/hard.pgf}
+    \end{center}
+    \caption{Average fitness of each generation over 30 runs on the hard maze for each variant.}
+    \label{hard_fitness}
 \end{figure}
 
 \newpage
@@ -61,3 +100,9 @@ compared to the pure fitness metric. However, LS-50 and injection were the only 
 the difference was significant at the $0.01$ level ($p=0.0012$ and $p=0.0068$). The mean number of
 links and nodes in the solution networks for LS-50 and injection were also lower
 compared to the pure fitness metric with significance at the $0.01$ level.
+
+None of the variants were able to solve the hard maze in the number of allotted time steps.
+However, some of the variants found controllers which navigated through large parts of the
+maze. If the experiments had been run with a slightly larger number
+The fitness based search quickly converges on controllers which stack up in the first
+dead-end and never escapes it.

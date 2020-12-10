@@ -44,6 +44,7 @@ in a direct manner.
 \end{figure}
 
 \subsection{Fitness and novelty metric}
+\label{subsection:metrics}
 The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring the fitness stays positive
 and $d$ is the euclidean distance from the robots final position to the maze end-point after an evaluation.
 The constant $b$ was set to the length of the diagonal of the mazes.
@@ -51,10 +52,10 @@ The novelty metric is defined as the euclidean distance between the robots end-p
 These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
 
 \subsection{Proposed combinations}
+\label{subsection:linearisation}
 The idea behind both of the studied combinations is to use novelty search in order to introduce diversity
 when the search algorithm prematurely converges on local optima.
 
-\subsubsection{Dynamic linearisation of novelty and fitness}
 As shown in \cite{novelty_not_enough}, a weighted sum of novelty and fitness can be used to score each solution
 \[
     score(i) = (1-\rho) \cdot \overline{fitness}(i) + \rho \cdot \overline{novelty}(i)
@@ -65,8 +66,11 @@ where $\rho \in [0,1]$ and the fitness and novelty score are normalised accordin
 \end{align*}
 where the maximum and minimum are the extreme values observed in the current population for each respective metric.
 The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{novelty_not_enough}, it is suggested
-that the $\rho$ parameter could be updated based on the performance of the search algorithm. I propose the following
-method for updating $\rho$
+that the $\rho$ parameter could be updated based on the performance of the search algorithm.
+
+\subsubsection{Dynamic linearisation of novelty and fitness}
+\label{subsubsection:dynamic_linearisation}
+I propose the following method for updating $\rho$
 \begin{align*}
     \rho(n) =
         \begin{cases}
@@ -79,6 +83,7 @@ $n_{max}$ is a threshold number of generations at which $\rho$ reaches a maximum
 of $0.9$. For the experiments, $n_{max}=15$ was used.
 
 \subsubsection{Novelty injection}
+\label{subsection:injection}
 In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
 higher fitness within some threshold number of generations $n_{max}$ the fitness metric is swapped for novelty for a fixed
 number of generations.
@@ -92,6 +97,7 @@ number of generations.
 In the experiments, the novelty metric was used for $15$ generations.
 
 \subsection{Experimental design}
+\label{subsection:design}
 Each variant is evaluated over $30$ runs for both mazes, each run being terminated once an ANN
 able to solve the maze is found or $100 000$ evaluations is reached.
 To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how

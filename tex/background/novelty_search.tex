@@ -1,3 +1,4 @@
+\newpage
 \subsection{Novelty search}
 Novelty search can be used with any evolutionary algorithm by replacing the fitness
 function with a novelty metric. Each solution is characterised based on some aspect
@@ -12,9 +13,8 @@ $k$-nearest neighbours in the archive
 \]
 where $n_{i}$ is the $i$th-nearest neighbour of $x$ using some distance metric $dist$ \cite{novelty_alone}.
 
-It might seem like novelty search is an exhaustive search of the solution space. However,
+It might seem like novelty search is an exhaustive search of the solution space. But
 depending on how the behaviour of the solutions is characterised, many different solutions
-collapse to the same point in the behavioural space. Another advantage of novelty search
+collapse to the same point in the behavioural space. Another feature of novelty search
 is that it follows the arrow of increasing complexity. Once all of the simple solutions
-have been discovered, the only way to receive a higher score is to evolve a more complex
-behaviour.
+have been discovered, to receive a higher score one must have a more complex behaviour.

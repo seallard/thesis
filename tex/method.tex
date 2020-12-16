@@ -14,9 +14,12 @@ The robot has six rangefinder sensors which measure the distance to walls. If a 
 direction and maximum range, the distance is returned. It also has four radar sensors which return binary
 values indicating whether the end-point is directly reachable within their field of view.
 
-Two mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{novelty_alone}.
+Three mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{ns_study, novelty_alone}.
 The first one is easy, only requiring the robot to slightly shift its path to reach the end-point. The second is more
 difficult, with deeper dead-ends that require the robots to explore parts of the maze of much lower fitness.
+The last maze is open - $95 \%$ of the maze area is irrelevant to actually solving it. This creates a
+large behaviour space which decouples novelty from utility, making novelty search alone insufficient
+to solve it.
 
 Any robot which navigates within 5 units of the end point is classified as having solved the maze. The robots
 were given $400$ time steps to solve the maze, a limit which was set as to force them to navigate the maze
@@ -27,21 +30,26 @@ in a direct manner.
     \captionsetup[subfigure]{justification=centering}
     \centering
     \begin{mdframed}
-        \begin{subfigure}[b]{0.45\textwidth}
+        \begin{subfigure}[b]{0.3\textwidth}
             \centering
-            \hspace*{2em}\scalebox{0.3}{\input{resources/mazes/medium.pgf}}
+            \scalebox{0.25}{\input{resources/mazes/medium.pgf}}
             \caption{Medium.}
         \end{subfigure}
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.3\textwidth}
             \centering
-            \hspace*{5em}\scalebox{0.3}{\input{resources/mazes/hard.pgf}}
+            \scalebox{0.25}{\input{resources/mazes/hard.pgf}}
             \caption{Hard.}
         \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \scalebox{0.25}{\input{resources/mazes/open.pgf}}
+            \caption{Open.}
+        \end{subfigure}
     \end{mdframed}
-    \caption{The robot must navigate from the green point to the red in order to solve the maze.
-             (b) is more deceptive than (a).}
+    \caption{The robot must navigate from the green point to the red in order to solve the maze.}
     \label{mazes}
 \end{figure}
+
 
 \subsection{Fitness and novelty metric}
 \label{subsection:metrics}
@@ -98,8 +106,9 @@ In the experiments, the novelty metric was used for $15$ generations.
 
 \subsection{Experimental design}
 \label{subsection:design}
-Each variant is evaluated over $30$ runs for both mazes, each run being terminated once an ANN
-able to solve the maze is found or $100 000$ evaluations is reached.
+Each variant is evaluated over $30$ runs for all of the mazes, each run being terminated once an ANN
+able to solve the maze is found or $100 000$ evaluations is reached. For the open maze, the number of
+evaluations was increased to $140 000$.
 To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how
 the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum
 of fitness and novelty which has been shown to perform well on the maze task \cite{ns_study}.

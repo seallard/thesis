@@ -1,4 +1,4 @@
-\section{Result}
+\section{Results and discussion}
 \label{sec:Result}
 
 See table \ref{abbreviations} for an explanation of each novelty search variants abbreviated name.
@@ -29,6 +29,12 @@ All of the variants studied were able to solve the medium maze in most of the ru
 Figure \ref{typical_runs} for a visualisation of two typical runs.
 Statistics for respective variant on the medium maze is reported in table \ref{medium}.
 See Figure \ref{medium_fitness} for the average fitness over all generations for each variant.
+
+As expected, the novelty search variants solve the medium maze in fewer evaluations on average
+compared to the pure fitness metric. However, LS-50 and injection were the only variants for which
+the difference was significant at the $0.01$ level ($p=0.0012$ and $p=0.0068$). The mean number of
+links and nodes in the solution networks for LS-50 and injection were also lower
+compared to the pure fitness metric with significance at the $0.01$ level.
 
 \begin{table}[H]
     \centering
@@ -63,27 +69,28 @@ See Figure \ref{medium_fitness} for the average fitness over all generations for
     \begin{mdframed}
         \begin{subfigure}[b]{0.45\textwidth}
             \includegraphics[scale=0.1]{resources/mazes/fitness_medium.png}
-            \caption{Fitness only.}
+            \caption{Fitness.}
             \label{fitness_only}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.1]{resources/mazes/novelty_medium.png}
-            \caption{Novelty only.}
+            \caption{Novelty.}
             \label{novelty_only}
         \end{subfigure}
     \end{mdframed}
-    \caption{Two representative runs for fitness and novelty on the medium maze. (a) found a solution after 57811 simulations
-    and (b) found a solution after 18922 simulations. Each point represents the final location
-    of a robot after a simulation.}
+    \caption{Two representative runs for fitness and novelty on the medium maze. (a) found a solution after 57811 evaluations
+    and (b) found a solution after 18922 evaluations. Each point represents the final location
+    of a robot after an evaluation.}
     \label{typical_runs}
 \end{figure}
 
 \subsection{Hard maze}
 None of the variants were able to solve the hard maze within the $400$ time steps and $500$ generations.
 The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to the
-robots entering the first dead-end. However, all of the novelty search variants except LS-50
-were able to quickly escape it, as indicated by the subsequent sharp drop in fitness.
-See Figure \ref{distribution} for scatter plots of all the final positions of the robots.
+robots entering the first dead-end. However, most of the novelty search variants
+were able to quickly escape it, as indicated by the subsequent drop in fitness.
+Judging from the distribution of end-points in Figure \ref{distribution}, none of the variants
+were better than pure novelty search in the hard maze.
 
 \begin{figure}[H]
     \begin{center}
@@ -120,15 +127,62 @@ See Figure \ref{distribution} for scatter plots of all the final positions of th
     \label{distribution}
 \end{figure}
 
-\newpage
-\subsection{Discussion}
-All of the studied variants were able to solve the medium-difficult maze in most of the runs.
-As expected, the novelty search variants solve the medium maze in fewer evaluations on average
-compared to the pure fitness metric. However, LS-50 and injection were the only variants for which
-the difference was significant at the $0.01$ level ($p=0.0012$ and $p=0.0068$). The mean number of
-links and nodes in the solution networks for LS-50 and injection were also lower
-compared to the pure fitness metric with significance at the $0.01$ level.
+\subsection{Open maze}
+Only LS-50 and the dynamic combinations were able to find networks which solved the open maze, see Table \ref{open}.
+\begin{table}[H]
+    \centering
+    \sisetup{table-format = 3.2}
+    \begin{tabular}{lll}
+    \toprule
+    Statistic & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{DL} \\
+    \midrule
+    Successful runs & 12 & 2 \\
+    Worst run (evaluations) & 122004 & 137803 \\
+    \rowcolor[gray]{.9} Mean evaluations until solved & 82608 & 129205 \\
+    Standard deviation & 32539  & 12159 \\
+    \rowcolor[gray]{.9} Mean hidden nodes of solutions & 23.1 & 45.5 \\
+    Standard deviation & 10.1 & 10.6 \\
+    \rowcolor[gray]{.9} Mean links of solutions & 82.3  & 150 \\
+    Standard deviation & 31.9  & 31.1 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Results for the open maze, data was collected for each variant over 30 runs.}
+    \label{open}
+\end{table}
 
-None of the variants were able to solve the hard maze in the number of allotted time steps.
-Judging from the distribution of end-points in Figure \ref{distribution}, none of the variants
-were better than pure novelty search in the hard maze.
+\begin{figure}[H]
+    \begin{center}
+        \input{resources/results/open_fitness.pgf}
+    \end{center}
+    \caption{Average fitness of each generation over 30 runs on the open maze for each variant.}
+    \label{hard_fitness}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{mdframed}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/pure_fitness_open_all_runs.png}
+            \caption{Fitness.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/pure_novelty_open_all_runs.png}
+            \caption{Novelty.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/fitness_novelty_open_all_runs.png}
+            \caption{LS-50.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/dynamic_open_all_runs.png}
+            \caption{Dynamic linearisation.}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[scale=0.4]{resources/mazes/novelty_injection_open_all_runs.png}
+            \caption{Novelty injection.}
+        \end{subfigure}
+    \end{mdframed}
+    \caption{The distribution of all end-positions for each variant in the open maze.
+             The top part of the maze is not shown.}
+    \label{distribution_open}
+\end{figure}
+

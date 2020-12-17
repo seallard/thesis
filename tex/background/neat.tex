@@ -3,9 +3,9 @@ Neuroevolution uses evolutionary algorithms to optimise ANNs \cite{neuroevolutio
 One such algorithm is Neuroevolution of Augmenting Topologies (NEAT), which evolves the topology and weights of ANNs
 using a genetic algorithm \cite{neat_main, neat_short, neat_phd}.
 
-NEAT uses a direct encoding; genomes contain connection- and node genes which specify the corresponding
+NEAT uses a direct encoding; genomes contain connection and node genes which specify the corresponding
 network (see Figure \ref{mapping}). Each connection gene is identified by a number and
-references the two node genes it spans. The node gene is also identified by a number.
+references the two nodes it connects. The node gene is also identified by a number.
 
 \input{resources/tex/genotype_phenotype.tex}
 
@@ -28,13 +28,13 @@ Each time a new link or node is added, a database containing all previous mutati
 identical links and nodes are labelled with the same ID.
 
 NEAT protects new structures by placing similar networks in the population into species.
-Competition mainly occurs within the species, ensuring newly created structures are not prematurely deleted.
+Competition mainly occurs within the species, ensuring that newly created structures are not prematurely deleted.
 Since each gene is labelled with an ID, computing a measure of structural similarity is as simple as
 comparing IDs in the genomes.
 
 The IDs are also used during crossover to create meaningful offspring from networks with different structure.
 They indicate the origin of each gene, making it possible to align link genes which span the same nodes in the genomes. Link genes
-that are not present in both genomes are only inherited from the more fit parent. See Figure \ref{neat_overview} for an overview
+that are not present in either genomes are only inherited from the more fit parent. See Figure \ref{neat_overview} for an overview
 of the NEAT algorithm.
 
 \input{resources/tex/overview/overview.tex}

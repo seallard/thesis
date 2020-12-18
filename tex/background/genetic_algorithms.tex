@@ -1,8 +1,7 @@
 \subsection{Genetic algorithms}
 Genetic algorithms are optimisation algorithms based on evolution. They have been successfully
 applied to problems in a wide array of domains, such as structural engineering \cite{engineering_gas}
-and drug development \cite{drug_gas}. Evolutionary algorithms have also been shown to be able to match
-the performance of gradient-based algorithms on some reinforcement learning benchmark problems \cite{es_reinforce}.
+and drug development \cite{drug_gas}.
 
 The fundamental idea is that of repeated selection of solutions which are better according to
 some metric from a population (see Algorithm \ref{algorithm}).
@@ -23,9 +22,9 @@ the actual solution which can be evaluated. See \cite{compint} for more details.
 \Procedure{GA}{}
     \State Initialise population
     \While{\textit{stopping condition not true}}
-        \State Evaluation \Comment{Evaluate fitness of each individual}
-        \State Selection  \Comment{Apply selection operator}
-        \State Create new population \Comment{Apply crossover and mutation operators}
+        \State Evaluation \COMMENT{Evaluate fitness of each individual}
+        \State Selection  \COMMENT{Apply selection operator}
+        \State Create new population \COMMENT{Apply crossover and mutation operators}
     \EndWhile
 \EndProcedure
 

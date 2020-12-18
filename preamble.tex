@@ -72,9 +72,12 @@
 
 %  Algorithms
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{algorithm}
+\usepackage{algorithm, algcompatible}
 \usepackage[noend]{algpseudocode}
-
+\renewcommand{\COMMENT}[2][.5\linewidth]{%
+  \leavevmode\hfill\makebox[#1][l]{//~#2}}
+\algnewcommand\algorithmicto{\textbf{to}}
+\algnewcommand\RETURN{\State \textbf{return} }
 
 %  Nice to have
 %%%%%%%%%%%%%%%%%%%%%%%%%%

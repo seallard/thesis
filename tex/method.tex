@@ -17,7 +17,8 @@ values indicating whether the end-point is directly reachable within their field
 Three mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{ns_study, novelty_alone}.
 The first one is easy, only requiring the robot to slightly shift its path to reach the end-point. The second is more
 difficult, with deeper dead-ends that require the robots to explore parts of the maze of much lower fitness.
-The last maze is open - $95 \%$ of the maze area is irrelevant to actually solving it. This creates a
+The last maze is open at the top, the robots are free to move upwards from the actual maze.
+$95 \%$ of the maze area is irrelevant to actually solving it. This creates a
 large behaviour space which decouples novelty from utility, making novelty search alone insufficient
 to solve it.
 
@@ -53,8 +54,8 @@ in a direct manner.
 
 \subsection{Fitness and novelty metric}
 \label{subsection:metrics}
-The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring the fitness stays positive
-and $d$ is the euclidean distance from the robots final position to the maze end-point after an evaluation.
+The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring that the fitness stays positive
+and $d$ is the euclidean distance from the robot's final position to the maze end-point after an evaluation.
 The constant $b$ was set to the length of the diagonal of the mazes.
 The novelty metric is defined as the euclidean distance between the robots end-positions in the maze.
 These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
@@ -62,18 +63,18 @@ These metrics have consistently been used in previous studies on novelty search,
 \subsection{Proposed combinations}
 \label{subsection:linearisation}
 The idea behind both of the studied combinations is to use novelty search in order to introduce diversity
-when the search algorithm prematurely converges on local optima.
+when the search algorithm prematurely converges to local optima.
 
 As shown in \cite{novelty_not_enough}, a weighted sum of novelty and fitness can be used to score each solution
 \[
     score(i) = (1-\rho) \cdot \overline{fitness}(i) + \rho \cdot \overline{novelty}(i)
 \]
-where $\rho \in [0,1]$ and the fitness and novelty score are normalised according to
+where $\rho \in [0,1]$ and the fitness and novelty scores are normalised according to
 \begin{align*}
     \overline{fitness}(i) =  \frac{fit(i) - fit_{min}}{fit_{max} - fit_{min}} && \overline{novelty}(i) =  \frac{novelty(i) - novelty_{min}}{novelty_{max} - novelty_{min}}
 \end{align*}
 where the maximum and minimum are the extreme values observed in the current population for each respective metric.
-The best results were obtained with $\rho=0.4-0.9$. In the discussion of \cite{novelty_not_enough}, it is suggested
+The best results were obtained with $\rho$ in $[0.4,0.9]$. In the discussion of \cite{novelty_not_enough}, it is suggested
 that the $\rho$ parameter could be updated based on the performance of the search algorithm.
 
 \subsubsection{Dynamic linearisation}
@@ -93,7 +94,7 @@ of $0.9$. For the experiments, $n_{max}=15$ was used.
 \subsubsection{Novelty injection}
 \label{subsection:injection}
 In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
-higher fitness within some threshold number of generations $n_{max}$ the fitness metric is swapped for novelty for a fixed
+higher fitness within some threshold number of generations $n_{max}$, the fitness metric is swapped for novelty for a fixed
 number of generations.
 \begin{align*}
     \rho(n) =
@@ -107,7 +108,7 @@ In the experiments, the novelty metric was used for $15$ generations.
 \subsection{Experimental design}
 \label{subsection:design}
 Each variant is evaluated over $30$ runs for all of the mazes, each run being terminated once an ANN
-able to solve the maze is found or $100 000$ evaluations is reached. For the open maze, the number of
+being able to solve the maze is found or $100 000$ evaluations have been performed. For the open maze, the number of
 evaluations was increased to $140 000$.
 To provide a baseline comparison, the experiment is run with pure fitness and novelty. To see how
 the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum

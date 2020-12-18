@@ -1,6 +1,6 @@
 \section{Implementation of novelty search}
 The novelty search algorithm was implemented in Python based on the conclusions of \cite{ns_study}.
-The parameter k, the number of nearest neighbours considered when calculating the novelty score,
+The parameter $k$, the number of nearest neighbours considered when calculating the novelty score,
 was set to 15. The archive was expanded each generation with $6$ randomly selected
-solutions from the population. To speed up the retrieval of the k-nearest neighbours, an
+solutions from the population. To speed up the retrieval of the $k$-nearest neighbours, an
 R-tree was used as the data structure for the archive.

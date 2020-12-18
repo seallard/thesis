@@ -1,7 +1,7 @@
 \section{Results and discussion}
 \label{sec:Result}
 
-See table \ref{abbreviations} for an explanation of each novelty search variants abbreviated name.
+See Table \ref{abbreviations} for an explanation of the abbreviations used for the novelty search variants.
 
 \begin{table}[H]
     \centering
@@ -27,7 +27,7 @@ See table \ref{abbreviations} for an explanation of each novelty search variants
 
 All of the variants studied were able to solve the medium maze in most of the runs. See
 Figure \ref{typical_runs} for a visualisation of two typical runs.
-Statistics for respective variant on the medium maze is reported in table \ref{medium}.
+Statistics for the respective variants on the medium maze are reported in table \ref{medium}.
 See Figure \ref{medium_fitness} for the average fitness over all generations for each variant.
 
 As expected, the novelty search variants solve the medium maze in fewer evaluations on average
@@ -53,7 +53,7 @@ compared to the pure fitness metric with significance at the $0.01$ level.
     Standard deviation & 31.6  & 24.5 & 23.6 & 20.1 & 21.4\\
     \bottomrule
     \end{tabular}
-    \caption{Results for the medium maze, data was collected for each variant over 30 runs.}
+    \caption{Results for the medium maze, where data were collected for each variant over 30 runs.}
     \label{medium}
 \end{table}
 
@@ -78,19 +78,20 @@ compared to the pure fitness metric with significance at the $0.01$ level.
             \label{novelty_only}
         \end{subfigure}
     \end{mdframed}
-    \caption{Two representative runs for fitness and novelty on the medium maze. (a) found a solution after 57811 evaluations
-    and (b) found a solution after 18922 evaluations. Each point represents the final location
+    \caption{Two representative runs for fitness and novelty on the medium maze. (a) A solution is after 57811 evaluations
+    and (b) a solution is found after 18922 evaluations. Each point represents the final location
     of a robot after an evaluation.}
     \label{typical_runs}
 \end{figure}
 
 \subsection{Hard maze}
-None of the variants were able to solve the hard maze within the $400$ time steps and $500$ generations.
-The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to the
-robots entering the first dead-end. However, most of the novelty search variants
+None of the variants was able to solve the hard maze within the $400$ time steps and $500$ generations.
+The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to the search algorithm
+discovering networks which navigate the robots into the first dead-end in the hard maze.
+However, most of the novelty search variants
 were able to quickly escape it, as indicated by the subsequent drop in fitness.
 Judging from the distribution of end-points in Figure \ref{distribution}, none of the variants
-were better than pure novelty search in the hard maze.
+was better than pure novelty search in the hard maze.
 
 \begin{figure}[H]
     \begin{center}
@@ -132,7 +133,7 @@ Only LS-50 and the dynamic combinations were able to find networks which solved 
 \begin{table}[H]
     \centering
     \sisetup{table-format = 3.2}
-    \begin{tabular}{lll}
+    \begin{tabular}{rrr}
     \toprule
     Statistic & \multicolumn{1}{l}{LS-50} & \multicolumn{1}{l}{DL} \\
     \midrule
@@ -146,7 +147,7 @@ Only LS-50 and the dynamic combinations were able to find networks which solved 
     Standard deviation & 31.9  & 31.1 \\
     \bottomrule
     \end{tabular}
-    \caption{Results for the open maze, data was collected for each variant over 30 runs.}
+    \caption{Results for the open maze, where data were collected for each variant over 30 runs.}
     \label{open}
 \end{table}
 

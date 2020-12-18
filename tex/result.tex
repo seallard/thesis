@@ -103,25 +103,30 @@ was better than pure novelty search in the hard maze.
 
 \begin{figure}[H]
     \begin{mdframed}
-        \begin{subfigure}[b]{0.45\textwidth}
+        \begin{subfigure}[t]{0.45\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/pure_fitness_hard_all.png}
-            \caption{Fitness.}
+            \captionsetup{justification=centering, skip=0pt, margin={0cm,1cm}}
+            \caption{F.}
         \end{subfigure}
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[t]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/pure_novelty_hard_all.png}
-            \caption{Novelty.}
+            \captionsetup{justification=centering,skip=0pt,margin={0cm,1cm}}
+            \caption{NS.}
         \end{subfigure}
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[t]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/fitness_novelty_hard_all.png}
+            \captionsetup{justification=centering,skip=0pt,margin={0cm,1.4cm}}
             \caption{LS-50.}
         \end{subfigure}
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[t]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/dynamic_hard_all.png}
-            \caption{Dynamic linearisation.}
+            \captionsetup{justification=centering,skip=0pt,margin={0cm,1cm}}
+            \caption{DL.}
         \end{subfigure}
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[t]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/novelty_injection_hard_all.png}
-            \caption{Novelty injection.}
+            \captionsetup{justification=centering,skip=0pt,margin={0cm,1cm}}
+            \caption{NI.}
         \end{subfigure}
     \end{mdframed}
     \caption{The distribution of all end-positions for each variant in the hard maze.}
@@ -130,6 +135,8 @@ was better than pure novelty search in the hard maze.
 
 \subsection{Open maze}
 Only LS-50 and the dynamic combinations were able to find networks which solved the open maze, see Table \ref{open}.
+See Figure \ref{open_fitness} for the average fitness over the generations. Comparing the distribution of end-points in Figure \ref{distribution_open},
+none of the variants were better than LS-50 in the open maze.
 \begin{table}[H]
     \centering
     \sisetup{table-format = 3.2}
@@ -156,30 +163,35 @@ Only LS-50 and the dynamic combinations were able to find networks which solved 
         \input{resources/results/open_fitness.pgf}
     \end{center}
     \caption{Average fitness of each generation over 30 runs on the open maze for each variant.}
-    \label{hard_fitness}
+    \label{open_fitness}
 \end{figure}
 
 \begin{figure}[H]
     \begin{mdframed}
-        \begin{subfigure}[b]{0.45\textwidth}
+        \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/pure_fitness_open_all_runs.png}
-            \caption{Fitness.}
+            \captionsetup{justification=centering, skip=0pt, margin={0cm,1cm}}
+            \caption{F.}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/pure_novelty_open_all_runs.png}
-            \caption{Novelty.}
+            \captionsetup{justification=centering, skip=0pt,margin={0cm,1cm}}
+            \caption{NS.}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/fitness_novelty_open_all_runs.png}
+            \captionsetup{justification=centering, skip=0pt,margin={0cm,1.4cm}}
             \caption{LS-50.}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/dynamic_open_all_runs.png}
-            \caption{Dynamic linearisation.}
+            \captionsetup{justification=centering, skip=0pt,margin={0cm,1cm}}
+            \caption{DL.}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
             \includegraphics[scale=0.4]{resources/mazes/novelty_injection_open_all_runs.png}
-            \caption{Novelty injection.}
+            \captionsetup{justification=centering, skip=0pt,margin={0cm,1cm}}
+            \caption{NI.}
         \end{subfigure}
     \end{mdframed}
     \caption{The distribution of all end-positions for each variant in the open maze.

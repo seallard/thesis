@@ -68,17 +68,17 @@ compared to the pure fitness metric with significance at the $0.01$ level.
 \begin{figure}[H]
     \begin{mdframed}
         \begin{subfigure}[b]{0.45\textwidth}
-            \includegraphics[scale=0.1]{resources/mazes/fitness_medium.png}
+            \includegraphics[scale=0.3]{resources/mazes/fitness_single.eps}
             \caption{Fitness.}
             \label{fitness_only}
         \end{subfigure}
         \begin{subfigure}[b]{0.5\textwidth}
-            \includegraphics[scale=0.1]{resources/mazes/novelty_medium.png}
+            \includegraphics[scale=0.3]{resources/mazes/novelty_single.eps}
             \caption{Novelty.}
             \label{novelty_only}
         \end{subfigure}
     \end{mdframed}
-    \caption{Two representative runs for fitness and novelty on the medium maze. (a) A solution is after 57811 evaluations
+    \caption{Two representative runs for fitness and novelty on the medium maze. (a) A solution is found after 57811 evaluations
     and (b) a solution is found after 18922 evaluations. Each point represents the final location
     of a robot after an evaluation.}
     \label{typical_runs}
@@ -90,7 +90,7 @@ The fitness rose quickly for each variant (see Figure \ref{hard_fitness}) due to
 discovering networks which navigate the robots into the first dead-end in the hard maze.
 However, most of the novelty search variants
 were able to quickly escape it, as indicated by the subsequent drop in fitness.
-Judging from the distribution of end-points in Figure \ref{distribution}, none of the variants
+Judging from the distribution of end points in Figure \ref{distribution}, none of the variants
 was better than pure novelty search in the hard maze.
 
 \begin{figure}[H]
@@ -135,7 +135,7 @@ was better than pure novelty search in the hard maze.
 
 \subsection{Open maze}
 Only LS-50 and the dynamic combinations were able to find networks which solved the open maze, see Table \ref{open}.
-See Figure \ref{open_fitness} for the average fitness over the generations. Comparing the distribution of end-points in Figure \ref{distribution_open},
+See Figure \ref{open_fitness} for the average fitness over the generations. Comparing the distribution of end points in Figure \ref{distribution_open},
 none of the variants were better than LS-50 in the open maze.
 \begin{table}[H]
     \centering

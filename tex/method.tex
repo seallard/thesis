@@ -2,7 +2,7 @@
 Variations on novelty search are often studied in the domain of maze navigation. Mazes are useful
 since they allow for the construction of tasks of varying deceptiveness. If the objective function is
 based on the distance to the end of the maze, simply following its gradient might trap the agent in
-dead-ends. The maze can be seen as an abstraction for difficult problems in which the fitness
+dead ends. The maze can be seen as an abstraction for difficult problems in which the fitness
 landscape is deceptive.
 
 \subsection{Maze navigation task}
@@ -12,11 +12,11 @@ outputs two forces adjusting the robots linear and angular velocity.
 
 The robot has six rangefinder sensors which measure the distance to walls. If a wall occurs within the sensors
 direction and maximum range, the distance is returned. It also has four radar sensors which return binary
-values indicating whether the end-point is directly reachable within their field of view.
+values indicating whether the end point is directly reachable within their field of view.
 
 Three mazes are used to compare the novelty search variants (see Figure \ref{mazes}) similar to the ones in \cite{ns_study, novelty_alone}.
-The first one is easy, only requiring the robot to slightly shift its path to reach the end-point. The second is more
-difficult, with deeper dead-ends that require the robots to explore parts of the maze of much lower fitness.
+The first one is easy, only requiring the robot to slightly shift its path to reach the end point. The second is more
+difficult, with deeper dead ends that require the robots to explore parts of the maze of much lower fitness.
 The last maze is open at the top, the robots are free to move upwards from the actual maze.
 $95 \%$ of the maze area is irrelevant to actually solving it. This creates a
 large behaviour space which decouples novelty from utility, making novelty search alone insufficient
@@ -55,9 +55,12 @@ in a direct manner.
 \subsection{Fitness and novelty metric}
 \label{subsection:metrics}
 The fitness function is defined as $f = b - d$ where $b$ is a constant ensuring that the fitness stays positive
-and $d$ is the euclidean distance from the robot's final position to the maze end-point after an evaluation.
+and $d$ is the euclidean distance from the robot's final position to the maze end point after an evaluation.
 The constant $b$ was set to the length of the diagonal of the mazes.
-The novelty metric is defined as the euclidean distance between the robots end-positions in the maze.
+
+The distance measure used in the novelty metric, see Equation 1, is defined as the euclidean distance between the
+final positions of the robots in the maze.
+
 These metrics have consistently been used in previous studies on novelty search, see for example \cite{ns_study,novelty_alone}.
 
 \subsection{Proposed combinations}
@@ -87,7 +90,7 @@ I propose the following method for updating $\rho$
             0.9 & \text{otherwise}
         \end{cases}
 \end{align*}
-where $n$ is the number of generations since a better solution was found and
+where $n$ is the number of generations since a solution of higher fitness was found and
 $n_{max}$ is a threshold number of generations at which $\rho$ reaches a maximum
 of $0.9$. For the experiments, $n_{max}=15$ was used.
 
@@ -95,7 +98,7 @@ of $0.9$. For the experiments, $n_{max}=15$ was used.
 \label{subsection:injection}
 In novelty injection, the novelty metric is used only if stagnation is detected. That is, if no solution is found with a
 higher fitness within some threshold number of generations $n_{max}$, the fitness metric is swapped for novelty for a fixed
-number of generations.
+number of generations $g_{swap}$.
 \begin{align*}
     \rho(n) =
         \begin{cases}
@@ -103,7 +106,9 @@ number of generations.
             1 & \text{otherwise}
         \end{cases}
 \end{align*}
-In the experiments, the novelty metric was used for $15$ generations.
+In the experiments, $n_{max}=15$ and $g_{swap} = 15$ was used. These constants were not determined by experimentation due to
+limited access to computational time. They were simply selected because they were able to solve the easy maze. I assumed that if novelty injection
+is a good method, its performance should be robust to variations in those parameters. See section 7 for a further discussion.
 
 \subsection{Experimental design}
 \label{subsection:design}
@@ -114,4 +119,3 @@ To provide a baseline comparison, the experiment is run with pure fitness and no
 the proposed combinations compare to existing ones, it is repeated with a fixed 50-50 weighted sum
 of fitness and novelty which has been shown to perform well on the maze task \cite{ns_study}.
 The parameters used by the genetic algorithm can be found in Appendix A.
-test

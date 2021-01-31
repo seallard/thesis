@@ -6,12 +6,19 @@
 \end{center}
 
 {
-	Novelty search is a technique used in evolutionary robotics to prevent search
-	algorithms from prematurely converging on local optima.
-	In this thesis, I propose two combinations of novelty with fitness and
-	compare their performance on a maze navigation task using a genetic algorithm.
-	Neither of the proposed combinations was significantly better than novelty search on
-	solving the task.
+  Novelty search is a technique used in evolutionary robotics to prevent search algorithms from prematurely
+  converging on local optima. Instead of scoring solutions based on how good they are according to an objective
+  function, novelty search assigns a score based on how different each solution is from previous ones. However, when the
+  search space is large it no longer is useful to guide the search only by novelty. In this thesis, I propose
+  two combinations of objective and novelty search. The first combination, called dynamic linearisation, uses
+  a dynamic ratio of the novelty and objective score. The ratio is updated based on the performance of the search. The
+  second combination, called novelty injection, alternates between using novelty and objective scores based on the performance of
+  the search.
+  The performance of the combinations is compared to novelty search, objective search and a static novelty ratio on a maze navigation task with
+  three mazes of different complexity and size. Neither of the proposed combinations solved any of the mazes significantly
+  faster than the static novelty ratio at the 0.05 level. However, the performance of dynamic linearisation was comparable
+  to that of the static novelty ratio and might merit further investigation. For example, studying its performance when different
+  constants it uses are varied.
 }
 
 \thispagestyle{empty}
